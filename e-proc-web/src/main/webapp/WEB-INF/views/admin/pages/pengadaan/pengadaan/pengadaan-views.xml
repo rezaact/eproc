@@ -1,0 +1,97 @@
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<tiles-definitions>
+    <definition name="app.admin.pengadaan.pengadaan.list_add_pengadaan" extends="app.layout.admin">
+        <put-attribute name="title" value="Dashboard"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/list_add_pengadaan.jsp">
+                <put-attribute name="form_edit_pengadaan"
+                               value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_edit_pengadaan.jsp"/>
+                
+                <put-attribute name="lookup_form_lelang_syarat"
+                               value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/lookup_form_lelang_syarat.jsp"/>
+                
+                <put-attribute name="lookup_syarat_pengadaan"
+                               value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/lookup_syarat_pengadaan.jsp"/>
+                
+                <put-attribute name="lookup_jadwal_pengadaan"
+                               value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/lookup_jadwal_pengadaan.jsp"/>
+                
+                <put-attribute name="lookup_verifikasi_harga"
+                               value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/lookup_verifikasi_harga.jsp"/>
+
+                <put-attribute name="lookup_next_syarat_pengadaan"
+                               value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/lookup_next_syarat_pengadaan.jsp"/>
+            </definition>
+        </put-attribute>
+    </definition>
+    
+    <definition name="app.admin.pengadaan.pengadaan.list_view_pengadaan" extends="app.layout.admin">
+        <put-attribute name="title" value="Dashboard"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/list_view_pengadaan.jsp">
+                <put-attribute name="form_detail_list_view_pengadaan"
+                               value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_detail_list_view_pengadaan.jsp"/>
+                <put-attribute name="form_kirim_penjelasan" value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_kirim_penjelasan.jsp"/>
+                <put-attribute name="form_evaluasi_pengadaan" value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_evaluasi_pengadaan.jsp"/>
+                <put-attribute name="form_auction_view" value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_auction_view.jsp"/>
+                <put-attribute name="form_bidding" value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_bidding.jsp"/>
+                <put-attribute name="form_penetapan_pemenang" value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_penetapan_pemenang.jsp"/>
+                <put-attribute name="form_membatalkan_lelang" value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_membatalkan_lelang.jsp"/>
+                <put-attribute name="auction_new" value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/auction_new.jsp"/>
+                <put-attribute name="auction_hist" value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/auction_hist.jsp"/>
+                <put-attribute name="auction_ba" value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/auction_ba.jsp"/>
+                <put-attribute name="auction_disk" value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/auction_disk.jsp"/>
+                <put-attribute name="check_evaluasi_peserta" value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/check_evaluasi_peserta.jsp"/>
+            </definition>
+        </put-attribute>
+    </definition>
+    
+    
+    
+    <definition name="app.admin.pengadaan.pengadaan.view_evaluasi_penawaran" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/view_evaluasi_penawaran.jsp">
+    </definition>
+    
+<!--    <definition name="app.admin.pengadaan.pengadaan.form_detail_list_view_pengadaan" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_detail_list_view_pengadaan.jsp">
+    </definition>-->
+    
+<!--    <definition name="app.admin.pengadaan.pengadaan.auction_new" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/auction_new.jsp">
+    </definition>-->
+<!--    <definition name="app.admin.pengadaan.pengadaan.auction_hist" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/auction_hist.jsp">
+    </definition>-->
+
+<!--    <definition name="app.admin.pengadaan.pengadaan.auction_ba" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/auction_ba.jsp">
+    </definition>-->
+
+<!--    <definition name="app.admin.pengadaan.pengadaan.auction_disk" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/auction_disk.jsp">
+    </definition>-->
+    
+<!--    <definition name="app.admin.pengadaan.pengadaan.check_evaluasi_peserta" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/check_evaluasi_peserta.jsp">
+    </definition>-->
+    
+<!--    <definition name="app.admin.pengadaan.pengadaan.kirim_penjelasan" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_kirim_penjelasan.jsp">
+    </definition>-->
+    
+<!--    <definition name="app.admin.pengadaan.pengadaan.form_membatalkan_lelang" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_membatalkan_lelang.jsp">
+    </definition>-->
+    
+<!--    <definition name="app.admin.pengadaan.pengadaan.form_evaluasi_pengadaan" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_evaluasi_pengadaan.jsp">
+    </definition>-->
+    
+<!--    <definition name="app.admin.pengadaan.pengadaan.form_auction_view" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_auction_view.jsp">
+    </definition>-->
+    
+<!--    <definition name="app.admin.pengadaan.pengadaan.form_bidding" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_bidding.jsp">
+    </definition>-->
+    
+<!--    <definition name="app.admin.pengadaan.pengadaan.form_penetapan_pemenang" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_penetapan_pemenang.jsp">
+    </definition>-->
+    
+    
+</tiles-definitions>

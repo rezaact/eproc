@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!-- LAYOUT PORTAL -->
+    <definition name="app.layout.portal" template="/WEB-INF/views/portal/layout.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/views/portal/element/header.jsp"/>
+        <put-attribute name="navigation" value="/WEB-INF/views/portal/element/navigation.jsp"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/views/portal/element/footer.jsp"/>
+    </definition>
+
+    <!-- PORTAL BERANDA -->
+    <definition name="app.portal.beranda" extends="app.layout.portal">
+        <put-attribute name="title" value="Portal"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/portal/pages/homepage.jsp">
+                <put-attribute name="view_berita"
+                               value="/WEB-INF/views/portal/pages/informasi/view_berita.jsp"/>
+                <put-attribute name="view_pengumuman_dpt"
+                               value="/WEB-INF/views/portal/pages/informasi/view_pengumuman_dpt.jsp"/>
+                <put-attribute name="view_pengumuman_pengadaan"
+                               value="/WEB-INF/views/portal/pages/informasi/view_pengumuman_pengadaan.jsp"/>
+                <put-attribute name="view_hasil_lelang"
+                               value="/WEB-INF/views/portal/pages/informasi/view_hasil_lelang.jsp"/>
+            </definition>
+        </put-attribute>
+
+        <put-list-attribute name="scriptPlugin">
+            <add-attribute value="assets/portal/script/homepage.js" />
+        </put-list-attribute>
+
+    </definition>
+    
+    <definition name="app.portal.tentang" extends="app.layout.portal">
+        <put-attribute name="title" value="Tentang Kami"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/portal/pages/tentang.jsp">
+            </definition>
+        </put-attribute>
+
+        <put-list-attribute name="scriptPlugin">
+            <add-attribute value="assets/portal/script/homepage.js" />
+        </put-list-attribute>
+
+    </definition>
+    
+    <definition name="app.portal.faq" extends="app.layout.portal">
+        <put-attribute name="title" value="FAQ's"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/portal/pages/faq.jsp">
+            </definition>
+        </put-attribute>
+
+        <put-list-attribute name="scriptPlugin">
+            <add-attribute value="assets/portal/script/homepage.js" />
+        </put-list-attribute>
+
+    </definition>
+
+    <definition name="app.portal.cari" extends="app.layout.portal">
+        <put-attribute name="title" value="Hasil Cari"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/portal/pages/hasil_cari.jsp">
+            </definition>
+        </put-attribute>
+
+        <put-list-attribute name="scriptPlugin">
+            <add-attribute value="assets/portal/script/homepage.js" />
+        </put-list-attribute>
+
+    </definition>
+    
+    <definition name="app.portal.registrasi" extends="app.layout.portal">
+        <put-attribute name="title" value="Pendaftaran"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/portal/pages/registrasi.jsp">
+            </definition>
+        </put-attribute>
+
+        <put-list-attribute name="scriptPlugin">
+            <add-attribute value="assets/portal/script/homepage.js" />
+        </put-list-attribute>
+
+    </definition>
+    
+    <definition name="app.portal.form_registrasi" extends="app.layout.portal">
+        <put-attribute name="title" value="Form Pendaftaran"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/portal/pages/form_registrasi.jsp">
+            </definition>
+        </put-attribute>
+
+        <put-list-attribute name="scriptPlugin">
+            <add-attribute value="assets/portal/script/homepage.js" />
+        </put-list-attribute>
+
+    </definition>
+    
+    <definition name="app.layout.portal.library" extends="app.layout.portal">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/views/portal/element/header.jsp"/>
+        <put-attribute name="navigation" value="/WEB-INF/views/portal/element/navigation.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/portal/pages/library.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/portal/element/footer.jsp"/>
+    </definition>
+
+</tiles-definitions>

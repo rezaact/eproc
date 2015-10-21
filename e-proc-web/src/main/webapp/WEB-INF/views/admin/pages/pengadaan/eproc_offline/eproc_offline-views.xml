@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<tiles-definitions>
+    <definition name="app.admin.pengadaan.eproc_offline.list_eproc_offline" extends="app.layout.admin">
+        <put-attribute name="title" value="E-Proc Offline"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/pengadaan/eproc_offline/list_eproc_offline.jsp">
+                <put-attribute name="form_edit_eproc_offline"
+                               value="/WEB-INF/views/admin/pages/pengadaan/eproc_offline/form_edit_eproc_offline.jsp"/>
+                <put-attribute name="form_add_eproc_offline"
+                               value="/WEB-INF/views/admin/pages/pengadaan/eproc_offline/form_add_eproc_offline.jsp"/>
+            </definition>
+        </put-attribute>
+    </definition>
+    
+
+</tiles-definitions>

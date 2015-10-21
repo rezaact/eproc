@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+        
+<tiles-definitions>
+     
+    <definition name="app.admin.dpt.evaluasi_penyedia.list_data" extends="app.layout.admin">
+        <put-attribute name="title" value="Status DPT"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/dpt/evaluasi_penyedia/list_data.jsp">
+                <put-attribute name="detail_parent_material"
+                               value="/WEB-INF/views/admin/pages/dpt/evaluasi_penyedia/detail_parent_material.jsp"/>
+                
+                <put-attribute name="detail_child_material"
+                               value="/WEB-INF/views/admin/pages/dpt/evaluasi_penyedia/detail_child_material.jsp"/>
+                
+                <put-attribute name="detail_parent_jasa"
+                               value="/WEB-INF/views/admin/pages/dpt/evaluasi_penyedia/detail_parent_jasa.jsp"/>
+                
+                <put-attribute name="detail_child_jasa"
+                               value="/WEB-INF/views/admin/pages/dpt/evaluasi_penyedia/detail_child_jasa.jsp"/>
+                
+                <put-attribute name="form_evaluasi"
+                               value="/WEB-INF/views/admin/pages/dpt/evaluasi_penyedia/form_evaluasi.jsp"/>
+                
+                <put-attribute name="form_pemasukan_dokumen"
+                               value="/WEB-INF/views/admin/pages/dpt/evaluasi_penyedia/list_pemasukan.jsp"/>
+                
+                <put-attribute name="form_print"
+                               value="/WEB-INF/views/admin/pages/dpt/evaluasi_penyedia/detail_template.jsp"/>
+            </definition>
+        </put-attribute>
+    </definition>
+    
+    
+      
+</tiles-definitions>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="app.admin.perencana.anggaran" extends="app.layout.admin">
+        <put-attribute name="title" value="Anggaran"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/perencana/anggaran.jsp">
+                
+            </definition>
+        </put-attribute>
+    </definition>
+    
+    <definition name="app.admin.perencana.perencanaan" extends="app.layout.admin">
+        <put-attribute name="title" value="Perencanaan"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/perencana/perencanaan.jsp">
+                <put-attribute name="form_perencanaan"
+                               value="/WEB-INF/views/admin/pages/perencana/form_perencanaan.jsp"/>
+                
+                <put-attribute name="form_tambah_material"
+                               value="/WEB-INF/views/admin/pages/perencana/form_tambah_material.jsp"/>
+                
+                <put-attribute name="form_tambah_jasa"
+                               value="/WEB-INF/views/admin/pages/perencana/form_tambah_jasa.jsp"/>
+
+            </definition>
+        </put-attribute>
+    </definition>
+</tiles-definitions>

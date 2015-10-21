@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+        
+<tiles-definitions>
+     
+    <definition name="app.admin.dpt.inisialisasi.list_data" extends="app.layout.admin">
+        <put-attribute name="title" value="Inisisialisasi"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/dpt/inisialisasi/list_data.jsp">
+                <put-attribute name="form_detail_parent"
+                               value="/WEB-INF/views/admin/pages/dpt/inisialisasi/form_detail_parent.jsp"/>
+                
+                <put-attribute name="form_detail_child"
+                               value="/WEB-INF/views/admin/pages/dpt/inisialisasi/form_detail_child.jsp"/>
+            </definition>
+        </put-attribute>
+    </definition>
+      
+</tiles-definitions>

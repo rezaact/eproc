@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!--LOGIN-->
+
+    <definition name="app.portal.account.login" template="/WEB-INF/views/portal/pages/account/login.jsp">
+        
+    </definition>
+    
+    <definition name="app.portal.account.lupa_password" template="/WEB-INF/views/portal/pages/account/lupa_password.jsp">
+        
+    </definition>
+
+</tiles-definitions>

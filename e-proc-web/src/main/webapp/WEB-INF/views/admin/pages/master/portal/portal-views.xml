@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="app.admin.master.portal.berita" extends="app.layout.admin">
+        <put-attribute name="title" value="Master Berita"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/master/portal/berita.jsp">
+                
+            </definition>
+        </put-attribute>
+    </definition>
+    <definition name="app.admin.master.portal.dokumen" extends="app.layout.admin">
+        <put-attribute name="title" value="Master Dokumen"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/master/portal/dokumen.jsp">
+
+            </definition>
+        </put-attribute>
+    </definition>
+
+    <definition name="app.admin.master.portal.pengumuman" extends="app.layout.admin">
+        <put-attribute name="title" value="Master Pengumuman"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/master/portal/pengumuman.jsp">
+            </definition>
+        </put-attribute>
+    </definition>
+</tiles-definitions>

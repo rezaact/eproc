@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="app.admin.master.sistem.aplikasi" extends="app.layout.admin">
+        <put-attribute name="title" value="Master Sistem Aplikasi"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/master/sistem/aplikasi.jsp">
+            </definition>
+        </put-attribute>
+    </definition>
+
+    <definition name="app.admin.master.sistem.group" extends="app.layout.admin">
+        <put-attribute name="title" value="Master Group"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/master/sistem/group.jsp">
+                
+            </definition>
+        </put-attribute>
+    </definition>
+    
+    <definition name="app.admin.master.sistem.groupakses" extends="app.layout.admin">
+        <put-attribute name="title" value="Master Group Akses"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/master/sistem/groupakses.jsp">
+            </definition>
+        </put-attribute>
+    </definition>
+
+    <definition name="app.admin.master.sistem.verifikasi_user" extends="app.layout.admin">
+        <put-attribute name="title" value="Verifikasi User"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/master/sistem/verifikasi_user.jsp">
+            </definition>
+        </put-attribute>
+    </definition>
+
+    <definition name="app.admin.master.sistem.user" extends="app.layout.admin">
+        <put-attribute name="title" value="Master User"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/master/sistem/user.jsp">
+            </definition>
+        </put-attribute>
+    </definition>
+</tiles-definitions>

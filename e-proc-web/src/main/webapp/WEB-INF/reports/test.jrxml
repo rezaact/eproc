@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.6.1.final using JasperReports Library version 5.6.1  -->
+<!-- 2015-02-24T15:03:56 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Test" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f06ec870-d93d-492e-aa94-0a59e482ba68">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="tahun" class="java.lang.Integer"/>
+	<parameter name="nama" class="java.lang.String"/>
+	<parameter name="image" class="java.awt.image.BufferedImage"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="0" width="555" height="30" uuid="80333154-5ecf-49c9-9b83-33bec0c90a80"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="30" width="555" height="30" uuid="1a3faaed-a633-4f5e-92ba-6a7f6659397e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tahun " + $P{tahun}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="175">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="50" uuid="a80ddce3-1c78-4ac8-bd0a-b79cb0797dd8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Testing]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="10" y="50" width="183" height="95" uuid="e89fcd3c-6bcc-4b83-8762-c8384d5b6aaa"/>
+				<imageExpression><![CDATA[$P{image}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="360" y="60" width="50" height="50" uuid="9fef8e85-eaa8-4ae8-933f-b6a44e9bf1eb"/>
+			</image>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50">
+			<textField>
+				<reportElement x="-10" y="5" width="555" height="30" uuid="48fdda04-3fb8-40e3-91ef-441ac6d21bc6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nama: " + $P{nama}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

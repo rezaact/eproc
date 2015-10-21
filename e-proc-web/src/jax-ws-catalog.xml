@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://192.168.69.203:8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role?WSDL" uri="wsdl/192.168.69.203_8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role.wsdl"/>
+    <system systemId="http://192.168.69.203:8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role?wsdl" uri="wsdl/192.168.69.203_8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role.wsdl"/>
+    <system systemId="http://192.168.69.203:8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role?XSD=xsd/scm_validasi_user_sp.xsd" uri="wsdl/192.168.69.203_8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role.XSD_xsd/scm_validasi_user_sp.xsd"/>
+    <system systemId="http://192.168.69.203:8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role?XSD=xsd/scm_getlist_menu_by_user_sp.xsd" uri="wsdl/192.168.69.203_8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role.XSD_xsd/scm_getlist_menu_by_user_sp.xsd"/>
+    <system systemId="http://192.168.69.203:8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role?XSD=xsd/scm_getlist_role_by_user_sp.xsd" uri="wsdl/192.168.69.203_8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role.XSD_xsd/scm_getlist_role_by_user_sp.xsd"/>
+    <system systemId="http://192.168.69.203:8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role?XSD=xsd/scm_getdaftar_by_user_sp.xsd" uri="wsdl/192.168.69.203_8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role.XSD_xsd/scm_getdaftar_by_user_sp.xsd"/>
+    <system systemId="http://192.168.69.203:8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role?XSD=xsd/scm_getlist_menu_id_user_clob_sp.xsd" uri="wsdl/192.168.69.203_8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role.XSD_xsd/scm_getlist_menu_id_user_clob_sp.xsd"/>
+</catalog>

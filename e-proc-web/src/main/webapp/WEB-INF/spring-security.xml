@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <security:http auto-config="true" use-expressions="true">
+        
+        <security:intercept-url pattern="/assets/**" access="permitAll"/>
+        <security:intercept-url pattern="/portal/**" access="permitAll"/>
+        <security:intercept-url pattern="/login" access="permitAll"/>
+        <security:intercept-url pattern="/dashboard" access="authenticated"/>
+        <security:intercept-url pattern="/login/process" access="permitAll"/>
+        <security:intercept-url pattern="/home" access="permitAll"/>
+        <security:intercept-url pattern="/**" access="authenticated" />
+
+        <!--  access denied page -->
+        
+        <security:form-login login-page="/login"
+                             default-target-url="/"
+                             username-parameter="j_username"
+                             password-parameter="j_password"
+                             authentication-failure-url="/login/error?error=t"
+                             login-processing-url="/login/process"
+                             authentication-failure-handler-ref="authFailureHandler"
+                             authentication-success-handler-ref="authSuccessHandler"
+        />
+
+        <security:logout
+            logout-success-url="/portal/home"
+            logout-url="/logout"
+            invalidate-session="true" />
+
+<!--         <security:session-management session-authentication-strategy-ref="sas" /> -->
+
+    </security:http>
+
+    <security:authentication-manager >
+        <security:authentication-provider   user-service-ref="securityService">
+            <security:password-encoder ref="passwordEncoder" />
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+    <bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl" />
+
+<!--     <bean id="scr" class="org.springframework.security.web.context.HttpSessionSecurityContextRepository" /> -->
+
+<!--     <bean id="smf" class="org.springframework.security.web.session.SessionManagementFilter"> -->
+<!--         <constructor-arg name="securityContextRepository" ref="scr" /> -->
+<!--         <property name="sessionAuthenticationStrategy" ref="sas" /> -->
+<!--     </bean> -->
+
+<!--     <bean id="sas" class="org.springframework.security.web.authentication.session.ConcurrentSessionControlStrategy"> -->
+<!--         <constructor-arg name="sessionRegistry" ref="sessionRegistry" /> -->
+<!--         <property name="maximumSessions" value="100" /> -->
+<!--     </bean> -->
+    
+    <bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+    
+    <bean id="applicationFilter" class="id.co.iconpln.eproc.web.config.ApplicationFilter" />
+    
+    <bean id="authFailureHandler" class="id.co.iconpln.eproc.web.config.AuthenticationFailureHandlerImpl"/>
+    <bean id="authSuccessHandler" class="id.co.iconpln.eproc.web.config.AuthenticationSuccessHandlerImpl"/>
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+        
+<tiles-definitions>
+    <definition name="app.admin.dpt.daftar_dpt.list_data_perencana" extends="app.layout.admin">
+        <put-attribute name="title" value="Daftar DPT Perencana"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/dpt/daftar_dpt/list_data_perencana.jsp">
+                
+            </definition>
+        </put-attribute>
+    </definition>
+    
+    <definition name="app.admin.dpt.daftar_dpt.list_data_penyedia" extends="app.layout.admin">
+        <put-attribute name="title" value="Daftar DPT Penyedia"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/dpt/daftar_dpt/list_data_penyedia.jsp">
+                
+            </definition>
+        </put-attribute>
+    </definition>
+    
+</tiles-definitions>

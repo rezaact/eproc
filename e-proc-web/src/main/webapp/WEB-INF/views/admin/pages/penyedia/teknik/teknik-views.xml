@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="app.admin.penyedia.teknik.tenaga_ahli" extends="app.layout.admin">
+        <put-attribute name="title" value="Tenaga Ahli"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/penyedia/teknik/tenaga_ahli.jsp">
+                <put-attribute name="form_tenaga_detail"
+                               value="/WEB-INF/views/admin/pages/penyedia/teknik/form_tenaga_detail.jsp"/>
+                <put-attribute name="form_tenaga_pengalaman"
+                               value="/WEB-INF/views/admin/pages/penyedia/teknik/form_tenaga_pengalaman.jsp"/>
+                <put-attribute name="form_tenaga_pendidikan"
+                               value="/WEB-INF/views/admin/pages/penyedia/teknik/form_tenaga_pendidikan.jsp"/>
+                <put-attribute name="form_tenaga_sertifikat"
+                               value="/WEB-INF/views/admin/pages/penyedia/teknik/form_tenaga_sertifikat.jsp"/>
+                <put-attribute name="form_tenaga_bahasa"
+                               value="/WEB-INF/views/admin/pages/penyedia/teknik/form_tenaga_bahasa.jsp"/>
+            </definition>
+            
+            
+        </put-attribute>
+    </definition>
+
+    <definition name="app.admin.penyedia.teknik.pengalaman" extends="app.layout.admin">
+        <put-attribute name="title" value="Pengalaman"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/penyedia/teknik/pengalaman.jsp">
+            </definition>
+        </put-attribute>
+    </definition>
+
+    <definition name="app.admin.penyedia.teknik.peralatan" extends="app.layout.admin">
+        <put-attribute name="title" value="Peralatan"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/penyedia/teknik/peralatan.jsp">
+            </definition>
+        </put-attribute>
+    </definition> 
+
+    <definition name="app.admin.penyedia.teknik.pekerjaan_berjalan" extends="app.layout.admin">
+        <put-attribute name="title" value="Pekerjaan Berjalan"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/penyedia/teknik/pekerjaan_berjalan.jsp">
+            </definition>
+        </put-attribute>
+    </definition> 
+
+</tiles-definitions>

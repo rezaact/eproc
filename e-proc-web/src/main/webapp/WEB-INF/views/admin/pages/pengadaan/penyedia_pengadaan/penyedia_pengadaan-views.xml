@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="app.admin.pengadaan.penyedia_pengadaan.list_penyedia_pengadaan_baru" extends="app.layout.admin">
+        <put-attribute name="title" value="Penyedia Pengadaan Baru"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/list_penyedia_pengadaan_baru.jsp">
+                <put-attribute name="view_list_penyedia_pengadaan_baru"
+                               value="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/view_list_penyedia_pengadaan_baru.jsp"/>
+                 <put-attribute name="setuju_ikut_lelang"
+                               value="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/setuju_ikut_lelang.jsp"/>
+                 <put-attribute name="form_kirim_penjelasan"
+                               value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_kirim_penjelasan.jsp"/>
+                <put-attribute name="auction_view" 
+                               value="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/auction_view.jsp"/>
+                <put-attribute name="auction_form" 
+                               value="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/auction_form.jsp"/>
+            </definition>
+        </put-attribute>
+    </definition>
+    
+    <definition name="app.admin.pengadaan.penyedia_pengadaan.list_penyedia_daftar_pengadaan" extends="app.layout.admin">
+        <put-attribute name="title" value="Daftar Penyedia Pengadaan"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/list_penyedia_daftar_pengadaan.jsp">
+                <put-attribute name="view_list_penyedia_daftar_pengadaan"
+                               value="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/view_list_penyedia_daftar_pengadaan.jsp"/>
+                <put-attribute name="view_list_penyedia_pengadaan_baru"
+                               value="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/view_list_penyedia_pengadaan_baru.jsp"/>
+                <put-attribute name="setuju_ikut_lelang"
+                               value="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/setuju_ikut_lelang.jsp"/>
+                <put-attribute name="form_kirim_penjelasan"
+                               value="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_kirim_penjelasan.jsp"/>
+                 <put-attribute name="auction_view" 
+                               value="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/auction_view.jsp"/>
+                <put-attribute name="auction_form" 
+                               value="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/auction_form.jsp"/>
+            </definition>
+        </put-attribute>
+    </definition>
+    
+    
+    <!--<definition name="app.admin.pengadaan.penyedia_pengadaan.setuju_ikut_lelang" template="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/setuju_ikut_lelang.jsp">
+    </definition>-->
+    
+    <!-- <definition name="app.admin.pengadaan.pengadaan.form_kirim_penjelasan" template="/WEB-INF/views/admin/pages/pengadaan/pengadaan/form_kirim_penjelasan.jsp">
+    </definition> -->
+    
+   <!--  <definition name="app.admin.pengadaan.penyedia_pengadaan.auction_view" template="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/auction_view.jsp">
+    </definition> -->
+    
+    <!-- <definition name="app.admin.pengadaan.penyedia_pengadaan.auction_form" template="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/auction_form.jsp">
+    </definition> -->
+    
+    <!-- <definition name="app.admin.pengadaan.penyedia_pengadaan.view_list_penyedia_pengadaan_baru" template="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/view_list_penyedia_pengadaan_baru.jsp">
+    </definition> -->
+    <definition name="app.admin.pengadaan.penyedia_pengadaan.open_syarat" template="/WEB-INF/views/admin/pages/pengadaan/penyedia_pengadaan/open_syarat.jsp">
+    </definition>
+</tiles-definitions>

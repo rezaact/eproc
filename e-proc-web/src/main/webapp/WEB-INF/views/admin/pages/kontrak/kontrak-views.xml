@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="app.admin.kontrak.list_buat_kontrak" extends="app.layout.admin">
+        <put-attribute name="title" value="Pembuatan Kontrak"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/kontrak/info_kontrak/list_pengadaan.jsp">
+                <put-attribute name="info_pengadaan"
+                               value="/WEB-INF/views/admin/pages/kontrak/info_kontrak/info_pengadaan.jsp"/>
+                <put-attribute name="info_harga_material"
+                               value="/WEB-INF/views/admin/pages/kontrak/info_kontrak/info_harga_material.jsp"/>
+                <put-attribute name="info_harga_jasa"
+                               value="/WEB-INF/views/admin/pages/kontrak/info_kontrak/info_harga_jasa.jsp"/>
+                <put-attribute name="form_kontrak"
+                               value="/WEB-INF/views/admin/pages/kontrak/form_kontrak.jsp"/>
+            </definition>
+        </put-attribute>
+    </definition>
+
+    <definition name="app.admin.kontrak.list_kontrak" extends="app.layout.admin">
+        <put-attribute name="title" value="Daftar Kontrak"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/kontrak/list_kontrak.jsp">
+                <put-attribute name="info_pengadaan"
+                               value="/WEB-INF/views/admin/pages/kontrak/info_kontrak/info_pengadaan.jsp"/>
+                <put-attribute name="info_harga_material"
+                               value="/WEB-INF/views/admin/pages/kontrak/info_kontrak/info_harga_material.jsp"/>
+                <put-attribute name="info_harga_jasa"
+                               value="/WEB-INF/views/admin/pages/kontrak/info_kontrak/info_harga_jasa.jsp"/>
+                <put-attribute name="form_info_kontrak"
+                               value="/WEB-INF/views/admin/pages/kontrak/detail_kontrak.jsp"/>
+            </definition>
+        </put-attribute>
+    </definition>
+
+</tiles-definitions>

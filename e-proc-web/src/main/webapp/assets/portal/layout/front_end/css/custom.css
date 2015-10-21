@@ -1,0 +1,55 @@
+.page-container .page-content .page-content-wrap .page-content-holder {
+              width: 1200px;
+              margin: 0px auto;
+              padding: 10px 10px 20px;
+              zoom:1;
+            }
+
+        .page-container .page-content .page-content-wrap .page-content-holder .thumbnails .thumbnail-item {
+            float: center;
+            width: 70%;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 0px;
+        }
+
+        .glyphicon {
+        margin-right: 4px !important; /*override*/
+        }
+        .pagination .glyphicon {
+        margin-right: 0px !important; /*override*/
+        }
+        .pagination a {
+        color: #555;
+        }
+        .panel ul {
+        padding: 0px;
+        margin: 0px;
+        color:black;
+        list-style: none;
+        }
+        .news-item {
+        padding: 4px 4px;
+        margin: 0px;
+        border-bottom: 1px dotted #555;
+        }
+
+        .carousel-control.left {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0px, transparent 100%);
+            background-repeat: repeat-x;
+        }
+
+        .carousel-control.right {
+            right: 0px;
+            left: auto;
+            background-image: linear-gradient(to right, transparent 0px, rgba(0, 0, 0, 0) 100%);
+            background-repeat: repeat-x;
+        }
+
+        .page-container .page-content .page-content-wrap .page-content-holder .text-column {
+            float: left;
+            width: 100%;
+            margin-bottom: 0px;
+        }

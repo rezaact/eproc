@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="app.admin.pengadaan.ubah_hps_volume.list_ubah_hps_volume" extends="app.layout.admin">
+        <put-attribute name="title" value="Dashboard"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/pengadaan/ubah_hps_volume/list_ubah_hps_volume.jsp">
+                <put-attribute name="form_ubah_hps_volume"
+                               value="/WEB-INF/views/admin/pages/pengadaan/ubah_hps_volume/form_ubah_hps_volume.jsp"/>
+                <put-attribute name="form_surat_ubah_data_hps"
+                               value="/WEB-INF/views/admin/pages/pengadaan/ubah_hps_volume/form_surat_ubah_data_hps.jsp"/>
+                <put-attribute name="form_hps_daftar_material"
+                               value="/WEB-INF/views/admin/pages/pengadaan/ubah_hps_volume/form_hps_daftar_material.jsp"/>
+                
+                <put-attribute name="form_hps_daftar_jasa"
+                               value="/WEB-INF/views/admin/pages/pengadaan/ubah_hps_volume/form_hps_daftar_jasa.jsp"/>
+            </definition>
+        </put-attribute>
+    </definition>
+    
+    
+
+</tiles-definitions>
