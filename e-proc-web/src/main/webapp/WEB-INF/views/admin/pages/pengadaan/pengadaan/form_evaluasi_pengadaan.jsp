@@ -428,11 +428,11 @@
                                             <span class="icon-pencil"></span>
                                         </a>
                                         &nbsp;
-                                        <a title="History Auction" href="" class="widget-icon widget-icon-dark">
+                                        <a title="History Auction" href="javascript:void(0);" class="widget-icon widget-icon-dark btn_auction_hist">
                                             <span class="icon-list"></span>
                                         </a>
                                         &nbsp;
-                                        <a title="Buat BA" href="" class="widget-icon widget-icon-orange">
+                                        <a title="Buat BA" href="javascript:void(0);" class="widget-icon widget-icon-orange btn_auction_ba">
                                             <span class="icon-arrow-right"></span>
                                         </a>
                                     </td>
@@ -451,11 +451,11 @@
                                             <span class="icon-pencil"></span>
                                         </a>
                                         &nbsp;
-                                        <a title="History Auction" href="<?php echo base_url('lelang/auction_hist');?>" class="widget-icon widget-icon-dark">
+                                        <a title="History Auction" href="javascript:void(0);" class="widget-icon widget-icon-dark btn_auction_hist">
                                             <span class="icon-list"></span>
                                         </a>
                                         &nbsp;
-                                        <a title="Buat BA" href="<?php echo base_url('lelang/auction_ba');?>" class="widget-icon widget-icon-orange">
+                                        <a title="Buat BA" href="javascript:void(0);" class="widget-icon widget-icon-orange btn_auction_ba">
                                             <span class="icon-arrow-right"></span>
                                         </a>
                                     </td>
@@ -474,11 +474,11 @@
                                             <span class="icon-pencil"></span>
                                         </a>
                                         &nbsp;
-                                        <a title="History Auction" href="<?php echo base_url('lelang/auction_hist');?>" class="widget-icon widget-icon-dark">
+                                        <a title="History Auction" href="javascript:void(0);" class="widget-icon widget-icon-dark btn_auction_hist">
                                             <span class="icon-list"></span>
                                         </a>
                                         &nbsp;
-                                        <a title="Buat BA" href="<?php echo base_url('lelang/auction_ba');?>" class="widget-icon widget-icon-orange">
+                                        <a title="Buat BA" href="javascript:void(0);" class="widget-icon widget-icon-orange btn_auction_ba">
                                             <span class="icon-arrow-right"></span>
                                         </a>
                                     </td>
@@ -497,11 +497,11 @@
                                             <span class="icon-pencil"></span>
                                         </a>
                                         &nbsp;
-                                        <a title="History Auction" href="<?php echo base_url('lelang/auction_hist');?>" class="widget-icon widget-icon-dark">
+                                        <a title="History Auction" href="javascript:void(0);" class="widget-icon widget-icon-dark btn_auction_hist">
                                             <span class="icon-list"></span>
                                         </a>
                                         &nbsp;
-                                        <a title="Buat BA" href="<?php echo base_url('lelang/auction_ba');?>" class="widget-icon widget-icon-orange">
+                                        <a title="Buat BA" href="javascript:void(0);" class="widget-icon widget-icon-orange btn_auction_ba">
                                             <span class="icon-arrow-right"></span>
                                         </a>
                                     </td>

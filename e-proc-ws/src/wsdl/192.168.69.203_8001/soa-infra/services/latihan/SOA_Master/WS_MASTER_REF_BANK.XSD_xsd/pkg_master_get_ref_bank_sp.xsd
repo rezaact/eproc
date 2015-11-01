@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_get_ref_bank"
+     xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_get_ref_bank"
+     elementFormDefault="qualified">
+    <element name="IPGetRefBank">
+        <complexType>
+            <sequence>
+                <element name="P_NAMA" type="string" db:index="1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="OPGetRefBank">
+        <complexType>
+            <sequence>
+                <element name="GET_REF_BANK" type="string" db:index="0" db:type="CLOB" minOccurs="0" nillable="true"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

@@ -23,6 +23,7 @@ public class ApplicationMenu implements Serializable{
     private String leaf;
     private String icon_style;
     private Integer menu_order;
+    private String flag_object;
 
     public String getId() {
         return id;
@@ -94,6 +95,14 @@ public class ApplicationMenu implements Serializable{
 
     public void setMenu_order(Integer menu_order) {
         this.menu_order = menu_order;
+    }
+
+    public String getFlag_object() {
+        return flag_object;
+    }
+
+    public void setFlag_object(String flag_object) {
+        this.flag_object = flag_object;
     }
     
     

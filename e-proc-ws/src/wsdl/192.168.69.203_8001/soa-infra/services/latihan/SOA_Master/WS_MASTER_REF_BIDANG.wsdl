@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wsdl:definitions
+     name="WS_MASTER_REF_BIDANG"
+     targetNamespace="http://oracle.com/sca/soapservice/Eprocs/SOA_Master/WS_MASTER_REF_BIDANG"
+     xmlns:inp2="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_upd_ref_bidang"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:inp1="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_ins_ref_bidang"
+     xmlns:tns="http://oracle.com/sca/soapservice/Eprocs/SOA_Master/WS_MASTER_REF_BIDANG"
+     xmlns:inp4="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_get_ref_bidang"
+     xmlns:inp3="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_del_ref_bidang"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <wsdl:documentation>
+        <abstractWSDL>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master!1.0/WS_MASTER_REF_BIDANG.wsdl</abstractWSDL>
+    </wsdl:documentation>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_ins_ref_bidang"
+                 schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_BIDANG?XSD=xsd/pkg_master_ins_ref_bidang_sp.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_upd_ref_bidang"
+                 schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_BIDANG?XSD=xsd/pkg_master_upd_ref_bidang_sp.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_del_ref_bidang"
+                 schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_BIDANG?XSD=xsd/pkg_master_del_ref_bidang_sp.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_get_ref_bidang"
+                 schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_BIDANG?XSD=xsd/pkg_master_get_ref_bidang_sp.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="insertRequest">
+        <wsdl:part name="insReq" element="inp1:IPInsRefBidang"/>
+    </wsdl:message>
+    <wsdl:message name="insertReply">
+        <wsdl:part name="insRep" element="inp1:OPInsRefBidang"/>
+    </wsdl:message>
+    <wsdl:message name="updateRequest">
+        <wsdl:part name="updReq" element="inp2:IPUpdRefBidang"/>
+    </wsdl:message>
+    <wsdl:message name="updateReply">
+        <wsdl:part name="updRep" element="inp2:OPUpdRefBidang"/>
+    </wsdl:message>
+    <wsdl:message name="deleteRequest">
+        <wsdl:part name="delReq" element="inp3:IPDelRefBidang"/>
+    </wsdl:message>
+    <wsdl:message name="deleteReply">
+        <wsdl:part name="delRep" element="inp3:OPDelRefBidang"/>
+    </wsdl:message>
+    <wsdl:message name="getRequest">
+        <wsdl:part name="delReq" element="inp4:IPGetRefBidang"/>
+    </wsdl:message>
+    <wsdl:message name="getReply">
+        <wsdl:part name="getRep" element="inp4:OPGetRefBidang"/>
+    </wsdl:message>
+    <wsdl:portType name="execute_ptt">
+        <wsdl:operation name="insert">
+            <wsdl:input message="tns:insertRequest"/>
+            <wsdl:output message="tns:insertReply"/>
+        </wsdl:operation>
+        <wsdl:operation name="update">
+            <wsdl:input message="tns:updateRequest"/>
+            <wsdl:output message="tns:updateReply"/>
+        </wsdl:operation>
+        <wsdl:operation name="delete">
+            <wsdl:input message="tns:deleteRequest"/>
+            <wsdl:output message="tns:deleteReply"/>
+        </wsdl:operation>
+        <wsdl:operation name="get">
+            <wsdl:input message="tns:getRequest"/>
+            <wsdl:output message="tns:getReply"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="execute_pttBinding" type="tns:execute_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="insert">
+            <soap:operation style="document" soapAction="insert"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update">
+            <soap:operation style="document" soapAction="update"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete">
+            <soap:operation style="document" soapAction="delete"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get">
+            <soap:operation style="document" soapAction="get"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="WS_MASTER_REF_BIDANG">
+        <wsdl:port name="execute_pt" binding="tns:execute_pttBinding">
+            <soap:address location="http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_BIDANG"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

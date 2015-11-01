@@ -23,6 +23,7 @@ public class AuthenticationFailureHandlerImpl implements AuthenticationFailureHa
     public void onAuthenticationFailure(HttpServletRequest hsr, HttpServletResponse hsr1, AuthenticationException ae) throws IOException, ServletException {
         System.out.println("Failed Authentication");
         System.out.println("AuthenticationException : " + ae.getMessage());
+        hsr1.sendRedirect(hsr.getContextPath() + "/login?error=true&message=" + ae.getMessage());
     }
     
 }

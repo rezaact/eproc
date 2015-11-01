@@ -17,7 +17,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
@@ -59,25 +58,42 @@ public class ApplicationFilter implements Filter {
             }
             
             boolean valid = false;
+            boolean valid_ajax = false;
             System.out.println(" servletPath : " + servletPath);
             System.out.println("Redirect (FROM FILTER) url...." + SecurityContextHolder.getContext().getAuthentication().isAuthenticated());
             if (applicationMenus != null) {
                 for (ApplicationMenu a : applicationMenus) {
+                    
                     if (servletPath.equals(a.getForm_id())) {
                         valid = true;
+                        valid_ajax = true;
                         break;
                     }
+                    
+                    if(servletPath.contains(a.getForm_id().replace("/*", ""))){
+                        valid = true;
+                        valid_ajax = true;
+                        break;
+                    }
+                    
                 }
                 if(servletPath.equals("/error/403") || servletPath.equals("/dashboard") 
                         || servletPath.equals("/login") || servletPath.equals("/login/process")
                         || servletPath.equals("/logout")){
                     valid = true;
+                    valid_ajax = true;
                 }
-                System.out.println("is valid : " + valid);
+                System.out.println("is valid : " + valid + " , valid_ajax : " + valid_ajax);
                 if (!valid) {
                     res.sendRedirect(req.getContextPath() + "/error/403");
                     return;
                 }
+                
+                if(!valid_ajax){
+                    res.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                    return;
+                }
+                
             }
             else{
 //                if(SecurityContextHolder.getContext().getAuthentication().isAuthenticated()){

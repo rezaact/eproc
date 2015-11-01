@@ -7,24 +7,40 @@
         <put-attribute name="title" value="Master Berita"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/portal/berita.jsp">
-                
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/portal/berita.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.portal.dokumen" extends="app.layout.admin">
         <put-attribute name="title" value="Master Dokumen"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/portal/dokumen.jsp">
-
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/portal/dokumen.js" />
+        </put-list-attribute>
     </definition>
-
+    <definition name="app.admin.master.portal.faq" extends="app.layout.admin">
+        <put-attribute name="title" value="Master FAQ"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/master/portal/faq.jsp">
+            </definition>
+        </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/portal/faq.js" />
+        </put-list-attribute>
+    </definition>
     <definition name="app.admin.master.portal.pengumuman" extends="app.layout.admin">
         <put-attribute name="title" value="Master Pengumuman"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/portal/pengumuman.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/portal/pengumuman.js" />
+        </put-list-attribute>
     </definition>
 </tiles-definitions>

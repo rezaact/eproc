@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wsdl:definitions
+     name="WS_MASTER_REF_KRITERIA"
+     targetNamespace="http://oracle.com/sca/soapservice/Eproc/SOA_Master/WS_MASTER_REF_KRITERIA"
+     xmlns:inp2="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_ins_ref_kriteria"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:inp1="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_get_ref_kriteria"
+     xmlns:tns="http://oracle.com/sca/soapservice/Eproc/SOA_Master/WS_MASTER_REF_KRITERIA"
+     xmlns:inp4="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_del_ref_kriteria"
+     xmlns:inp3="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_upd_ref_kriteria"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <wsdl:documentation>
+        <abstractWSDL>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master!1.0/WS_MASTER_REF_KRITERIA.wsdl</abstractWSDL>
+    </wsdl:documentation>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_get_ref_kriteria"
+                 schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_KRITERIA?XSD=xsd/pkg_master_get_ref_kriteria_sp.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_ins_ref_kriteria"
+                 schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_KRITERIA?XSD=xsd/pkg_master_ins_ref_kriteria_sp.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_upd_ref_kriteria"
+                 schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_KRITERIA?XSD=xsd/pkg_master_upd_ref_kriteria_sp.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_del_ref_kriteria"
+                 schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_KRITERIA?XSD=xsd/pkg_master_del_ref_kriteria_sp.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="get_request">
+        <wsdl:part name="part_get_request" element="inp1:IPGetRefKriteria"/>
+    </wsdl:message>
+    <wsdl:message name="get_reply">
+        <wsdl:part name="part_get_reply" element="inp1:OPGetRefKriteria"/>
+    </wsdl:message>
+    <wsdl:message name="insert_request">
+        <wsdl:part name="insert_request" element="inp2:IPInsRefKritereia"/>
+    </wsdl:message>
+    <wsdl:message name="insert_reply">
+        <wsdl:part name="insert_reply" element="inp2:OPInsRefKriteria"/>
+    </wsdl:message>
+    <wsdl:message name="update_request">
+        <wsdl:part name="update_request" element="inp3:IPUpdRefKriteria"/>
+    </wsdl:message>
+    <wsdl:message name="update_reply">
+        <wsdl:part name="part_update_reply" element="inp3:OPUpdRefKriteria"/>
+    </wsdl:message>
+    <wsdl:message name="delete_request">
+        <wsdl:part name="part_delete_request" element="inp4:IPDelReKriteria"/>
+    </wsdl:message>
+    <wsdl:message name="delete_reply">
+        <wsdl:part name="part_delete_reply" element="inp4:OPDelRefKriteria"/>
+    </wsdl:message>
+    <wsdl:portType name="execute_ptt">
+        <wsdl:operation name="get">
+            <wsdl:input message="tns:get_request"/>
+            <wsdl:output message="tns:get_reply"/>
+        </wsdl:operation>
+        <wsdl:operation name="insert">
+            <wsdl:input message="tns:insert_request"/>
+            <wsdl:output message="tns:insert_reply"/>
+        </wsdl:operation>
+        <wsdl:operation name="update">
+            <wsdl:input message="tns:update_request"/>
+            <wsdl:output message="tns:update_reply"/>
+        </wsdl:operation>
+        <wsdl:operation name="delete">
+            <wsdl:input message="tns:delete_request"/>
+            <wsdl:output message="tns:delete_reply"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="execute_pttBinding" type="tns:execute_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="get">
+            <soap:operation style="document" soapAction="get"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="insert">
+            <soap:operation style="document" soapAction="insert"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update">
+            <soap:operation style="document" soapAction="update"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete">
+            <soap:operation style="document" soapAction="delete"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="WS_MASTER_REF_KRITERIA">
+        <wsdl:port name="execute_pt" binding="tns:execute_pttBinding">
+            <soap:address location="http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_KRITERIA"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

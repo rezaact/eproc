@@ -14,28 +14,22 @@
 <div class="col-md-12"  id="master_bank_list" >
     <div class="block block-fill-white">
 
-    <c:if test="${not empty success}">
-        <c:if test="${success eq '1'}">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Data Berhasil Disimpan</h3>
-                </div>
+        <div class="panel panel-success panel-message" id="message-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Data Berhasil Disimpan</h3>
             </div>
-        </c:if>
+        </div>
 
-        <c:if test="${success eq '-1'}">
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Data Gagal Disimpan</h3>
-                </div>
-                <div class="panel-footer">${message}</div>
+        <div class="panel panel-danger panel-message" id="message-error">
+            <div class="panel-heading">
+                <h3 class="panel-title">Data Gagal Disimpan</h3>
             </div>
-        </c:if>
-    </c:if>
+            <div class="panel-footer"></div>
+        </div>
 
         <div class="header" style="background-color:SteelBlue;"><h2 style="color:white;font-size:14px">Master Bank</h2>
             <div class="pull-right"><a id="master_bank_list_btnadd" class="btn btn-success">
-                <span class="icon-plus"></span> Tambah</a>
+                <span class="icon-plus"></span>Tambah</a>
             </div>
         </div>
 
@@ -83,29 +77,37 @@
             <div class="panel-heading"><h3 class="panel-title">TAMBAH BANK</h3>
             </div>
             <form method="post" action="<c:url value="/master/aplikasi/bank"/>" ><%--id="form-add-kode-bank"--%>
+                <input type="hidden" name="mode" value=""/>
                 <div class="panel-body">
                     <div class="content controls">
                         <div class="form-row">
                             <div class="col-md-2">Kode Negara</div>
-                            <div class="col-md-4">
-                                    <select class="form-control" name="inKodeNegara" data-placeholder="Pilih..." id="kode_negara">
-                                    <option value="">Pilih...</option>
+                            <select class="select2 col-md-4"  name="inKodeNegara" data-placeholder="Pilih..." id="kode_negara">
+                                <option value="">Pilih...</option>
                                     <c:forEach var="kodeNegara" items="${listKodeNegara}" >
                                         <option value="${kodeNegara.KODE_NEGARA}">${kodeNegara.NAMA_NEGARA}</option>
                                     </c:forEach>
-                                </select>
-                            </div>
+                            </select>
+
                         </div>
                         <div class="form-row">
                             <div class="col-md-2">Kode Bank</div>
                             <div class="col-md-4">
-                                <input type="text" name="inKodeBank" maxlength="50" class="form-control" value=""/>
-
+                                <%--<input type="text" name="inKodeBank" id="inKodeBank" maxlength="50"
+                                       class="validate[required, custom[onlyLetterNumber], ajax[ajaxValidationIsDataExistCall]]
+                                       form-control" value=""/>--%>
+                                    <input type="text" name="inKodeBank" id="inKodeBank" maxlength="50"
+                                           class="validate[required, custom[onlyLetterNumber], minSize[3], ajax[ajaxTestCall]]
+                                       form-control" value=""/>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-2">Nama</div>
-                            <div class="col-md-3"><input type="text" name="inNama" maxlength="100" class="form-control"  /></div>
+                            <div class="col-md-3">
+                                <input type="text" name="inNama" id="inNama" maxlength="100"
+                                       class="validate[required, minSize[5]]
+                                       form-control"  />
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-2">Cabang</div>
@@ -139,7 +141,7 @@
 <!--END FORM TAMBAH BANK-->
 
 <!-- START FORM EDIT BANK-->
-<div class="col-md-12" id="master_bank_form_edit" style="display: none;">
+<%--<div class="col-md-12" id="master_bank_form_edit" style="display: none;">
     <div class="block block-fill-white">
         <div class="panelx panel-info">
             <div class="panel-heading"><h3 class="panel-title">PERBAHARUI BANK</h3>
@@ -150,7 +152,7 @@
                         <div class="form-row">
                             <div class="col-md-2">Kode Negara</div>
                             <div class="col-md-1">
-                                <%--<input type="text" class="form-control" value="62"/>--%>
+                                &lt;%&ndash;<input type="text" class="form-control" value="62"/>&ndash;%&gt;
                                 <select class="form-control" name="prm_kode_negara" data-placeholder="Pilih..." id="kode_negara_edit">
                                     <option value=""></option>
                                     <c:forEach var="kodeNegara" items="${listKodeNegara}" >
@@ -197,7 +199,7 @@
             </form>
         </div>
     </div>
-</div>
+</div>--%>
 <!--END FORM EDIT BANK-->
 <!-- START FORM EDIT -->
 <!--END FORM EDIT -->
@@ -212,7 +214,7 @@
                 <h4 class="modal-title">Apakah yakin akan menghapus data ?</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success btn-clean" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-success btn-clean" data-dismiss="modal" id="btn_delete_bank">Yes</button>
                 <button type="button" class="btn btn-danger btn-clean" data-dismiss="modal">No</button>
             </div>
         </div>

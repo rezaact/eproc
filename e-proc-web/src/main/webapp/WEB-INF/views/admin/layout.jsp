@@ -36,8 +36,8 @@
         <script type='text/javascript' src="<c:url value="/assets/admin/layout/scripts/plugins/tagsinput/jquery.tagsinput.min.js"/>"></script>
         <script type='text/javascript' src="<c:url value="/assets/admin/layout/scripts/plugins/bootstrap/bootstrap-file-input.js"/>"></script>
 
-        <script type='text/javascript' src="<c:url value="/assets/admin/layout/scripts/plugins/validationengine/languages/jquery.validationEngine-en.js"/>"></script>
-        <script type='text/javascript' src="<c:url value="/assets/admin/layout/scripts/plugins/validationengine/jquery.validationEngine.js"/>"></script>
+        <%--<script type='text/javascript' src="<c:url value="/assets/admin/layout/scripts/plugins/validationengine/languages/jquery.validationEngine-en.js"/>"></script>
+        <script type='text/javascript' src="<c:url value="/assets/admin/layout/scripts/plugins/validationengine/jquery.validationEngine.js"/>"></script>--%>
         <script type='text/javascript' src="<c:url value="/assets/admin/layout/scripts/plugins/validation/jquery.validate.js"/>"></script>
         <script type='text/javascript' src="<c:url value="/assets/admin/layout/scripts/plugins/validation/jquery.validate.min.js"/>"></script>
 
@@ -85,6 +85,9 @@
                 return i;
             }
         </script>
+
+        <script type='text/javascript' src="<c:url value="/assets/admin/layout/scripts/plugins/validationengine/languages/jquery.validationEngine-en.js"/>"></script>
+        <script type='text/javascript' src="<c:url value="/assets/admin/layout/scripts/plugins/validationengine/jquery.validationEngine.js"/>"></script>
     </head>
 
     <body onload="startTime()" class="bg-img-num1">

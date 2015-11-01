@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_del_ref_sub_bidang"
+     xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_del_ref_sub_bidang"
+     elementFormDefault="qualified">
+    <element name="IPDelRefSubBidang">
+        <complexType>
+            <sequence>
+                <element name="P_ID_SUB_BIDANG" type="string" db:index="1" db:type="VARCHAR2" minOccurs="0"
+                     nillable="true"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="OPDelRefSubBidang">
+        <complexType>
+            <sequence>
+                <element name="OUT_ROWCOUNT" type="decimal" db:index="2" db:type="NUMBER" minOccurs="0"
+                     nillable="true"/>
+                <element name="MSGERROR" type="string" db:index="3" db:type="VARCHAR2" minOccurs="0"
+                     nillable="true"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

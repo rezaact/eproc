@@ -36,7 +36,15 @@
             <div class="form-row">
                 <div class="col-md-3">Provinsi : </div>
                 <div class="col-md-3">
-                        <form:select path="listComboBox" items="${listComboBox}" class="form-control"/>
+                    <form:select path="listComboProvinsi" items="${listComboProvinsi}" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-row">
+                <div class="col-md-3">Kabupaten : </div>
+                <div class="col-md-3">
+                    <form:select path="listComboKabupaten" items="${listComboKabupaten}" class="form-control"/>
                 </div>
             </div>
         </div>

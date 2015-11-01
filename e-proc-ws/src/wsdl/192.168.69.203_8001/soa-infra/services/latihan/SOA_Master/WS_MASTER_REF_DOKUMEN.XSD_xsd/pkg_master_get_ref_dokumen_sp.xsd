@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_get_ref_dokumen"
+     xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/pkg_master_get_ref_dokumen"
+     elementFormDefault="qualified">
+    <element name="IPGetRefDokumen">
+        <complexType>
+            <sequence>
+                <element name="P_NAMA_DOKUMEN" type="string" db:index="1" db:type="VARCHAR2" minOccurs="0"
+                     nillable="true"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="OPGetRefDokumen">
+        <complexType>
+            <sequence>
+                <element name="GET_REF_DOKUMEN" type="string" db:index="0" db:type="CLOB" minOccurs="0"
+                     nillable="true"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

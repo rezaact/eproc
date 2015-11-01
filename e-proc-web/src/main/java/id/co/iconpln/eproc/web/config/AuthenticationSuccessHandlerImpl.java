@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,9 +42,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
         HttpSession session = hsr.getSession();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        
-        System.out.println("User name setelah login : " + username);
-        
+        System.out.println("Username AuthenticationSuccessHandlerImpl : " + username);
         List<ApplicationMenu> applicationMenus = applicationMenuService.getListMenuByUser(username);
         
         session.setAttribute(Constans.APPLICATION_MENUS, applicationMenus);
@@ -55,7 +52,8 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 
 
         for (ApplicationMenu applicationMenu : applicationMenus) {
-            if (!applicationMenu.getRoot_id().equals("")) {
+            
+            if (!applicationMenu.getRoot_id().equals("") && applicationMenu.getFlag_object().equals("m")) {
                 if (applicationMenu.getRoot_id().equals("rootmenu")) {
                     availableMenus.add(new AvailableMenu(applicationMenu.getId(), applicationMenu.getRoot_id(),
                             applicationMenu.getText(), applicationMenu.getIcon_style(), applicationMenu.getMenu_order(), applicationMenu.getForm_id(),null));

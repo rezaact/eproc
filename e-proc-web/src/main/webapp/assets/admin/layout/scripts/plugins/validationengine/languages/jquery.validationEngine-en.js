@@ -132,6 +132,13 @@
                     "alertText": "* No special characters allowed"
                 },
                 // --- CUSTOM RULES -- Those are specific to the demos, they can be removed or changed to your likings
+                "ajaxTestCall": {
+                    "url": BASE_URL +  "test/ajax",
+                    // you may want to pass extra data on the ajax call
+                    "extraData": "name=eric",
+                    "alertText": "* This user is already taken",
+                    "alertTextLoad": "* Validating, please wait"
+                },
                 "ajaxUserCall": {
                     "url": "ajaxValidateFieldUser",
                     // you may want to pass extra data on the ajax call
@@ -158,7 +165,7 @@
                     // speaks by itself
                     "alertTextLoad": "* Validating, please wait"
                 },
-				 "ajaxNameCallPhp": {
+				"ajaxNameCallPhp": {
 	                    // remote json service location
 	                    "url": "phpajax/ajaxValidateFieldName.php",
 	                    // error

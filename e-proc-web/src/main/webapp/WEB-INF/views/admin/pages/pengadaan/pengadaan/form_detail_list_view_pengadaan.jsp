@@ -30,7 +30,7 @@
                                 </tr>
                                 <tr>
                                     <td bgcolor="#EEEEEE">Tahap Pengadaan Saat ini</td>
-                                    <td colspan="4"><?php echo $ket_sts; ?></td>
+                                    <td colspan="4"></td>
                                 </tr>
                                 <tr>
                                     <td bgcolor="#EEEEEE"></td>
@@ -271,7 +271,7 @@
                                             </tr>
                                             <tr>
                                                 <td>File</td>
-                                                <td><?php echo ($sts == '12' ? ' <span class="icon-download-alt"></span> PT. Jaya Abadi Semangka-000000.rhs (14 MB)' : 'Download******** (14 MB)');?></td>
+                                                <td><span class="icon-download-alt"></span> PT. Jaya Abadi Semangka-000000.rhs (14 MB)</td>
                                             </tr>
                                             <tr>
                                                 <td>Hash</td>

@@ -9,15 +9,20 @@
             <definition template="/WEB-INF/views/admin/pages/master/sistem/aplikasi.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/sistem/aplikasi.js" />
+        </put-list-attribute>
     </definition>
 
     <definition name="app.admin.master.sistem.group" extends="app.layout.admin">
         <put-attribute name="title" value="Master Group"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/sistem/group.jsp">
-                
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/sistem/group.js" />
+        </put-list-attribute>
     </definition>
     
     <definition name="app.admin.master.sistem.groupakses" extends="app.layout.admin">
@@ -26,6 +31,9 @@
             <definition template="/WEB-INF/views/admin/pages/master/sistem/groupakses.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/sistem/group_akses.js" />
+        </put-list-attribute>
     </definition>
 
     <definition name="app.admin.master.sistem.verifikasi_user" extends="app.layout.admin">
@@ -34,6 +42,9 @@
             <definition template="/WEB-INF/views/admin/pages/master/sistem/verifikasi_user.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/sistem/verifikasi_user.js" />
+        </put-list-attribute>
     </definition>
 
     <definition name="app.admin.master.sistem.user" extends="app.layout.admin">
@@ -42,5 +53,8 @@
             <definition template="/WEB-INF/views/admin/pages/master/sistem/user.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/sistem/user.js" />
+        </put-list-attribute>
     </definition>
 </tiles-definitions>

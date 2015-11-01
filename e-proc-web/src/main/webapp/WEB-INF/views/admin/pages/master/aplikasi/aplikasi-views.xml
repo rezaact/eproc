@@ -7,9 +7,11 @@
         <put-attribute name="title" value="Master Badan Usaha"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/badan_usaha.jsp">
-                
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/badan_usaha.js" />
+        </put-list-attribute>
     </definition>
 
     <definition name="app.admin.master.aplikasi.bank" extends="app.layout.admin">
@@ -31,13 +33,23 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/bidang.jsp">
             </definition>
         </put-attribute>
+
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/bidang.js" />
+        </put-list-attribute>
+
     </definition>
+
     <definition name="app.admin.master.aplikasi.dana" extends="app.layout.admin">
         <put-attribute name="title" value="Master Dana"/>
+
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/dana.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/dana.js" />
+        </put-list-attribute>
     </definition>
 
     <definition name="app.admin.master.aplikasi.jadwal" extends="app.layout.admin">
@@ -46,27 +58,45 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/jadwal.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/jadwal.js" />
+        </put-list-attribute>
+
     </definition>
     <definition name="app.admin.master.aplikasi.jasa" extends="app.layout.admin">
         <put-attribute name="title" value="Master Jasa"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/jasa.jsp">
             </definition>
+
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/jasa.js" />
+        </put-list-attribute>
+
     </definition>
     <definition name="app.admin.master.aplikasi.jenis_anggaran" extends="app.layout.admin">
         <put-attribute name="title" value="Master Jenis Anggaran"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/jenis_anggaran.jsp">
             </definition>
+
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/jenis_anggaran.js" />
+        </put-list-attribute>
+
     </definition>
     <definition name="app.admin.master.aplikasi.jenis_dokumen" extends="app.layout.admin">
         <put-attribute name="title" value="Master Jenis Dokumen"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/jenis_dokumen.jsp">
             </definition>
+
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/jenis_dokumen.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.kategori_evaluasi_penawaran" extends="app.layout.admin">
         <put-attribute name="title" value="Master Kategori Evaluasi Penawaran"/>
@@ -74,6 +104,9 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/kategori_evaluasi_penawaran.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/kat_eval_penawaran.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.jenis_kontrak" extends="app.layout.admin">
         <put-attribute name="title" value="Master Jenis Kontrak"/>
@@ -81,6 +114,9 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/jenis_kontrak.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/jenis_kontrak.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.jenis_kualifikasi" extends="app.layout.admin">
         <put-attribute name="title" value="Master Jenis Kualifikasi"/>
@@ -88,6 +124,9 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/jenis_kualifikasi.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/jenis_kualifikasi.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.jenis_pengadaan" extends="app.layout.admin">
         <put-attribute name="title" value="Master Jenis Pengadaan"/>
@@ -95,6 +134,9 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/jenis_pengadaan.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/jenis_pengadaan.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.kabupaten" extends="app.layout.admin">
         <put-attribute name="title" value="Master Kabupaten"/>
@@ -102,6 +144,9 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/kabupaten.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/kabupaten.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.kbli" extends="app.layout.admin">
         <put-attribute name="title" value="Master KBLI"/>
@@ -109,6 +154,9 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/kbli.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/kbli.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.kualifikasi_pengadaan" extends="app.layout.admin">
         <put-attribute name="title" value="Master Kualifikasi Pengadaan"/>
@@ -116,6 +164,9 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/kualifikasi_pengadaan.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/kualifikasi_pengadaan.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.kualifikasi_penyedia" extends="app.layout.admin">
         <put-attribute name="title" value="Master Kualifikasi Penyedia"/>
@@ -123,6 +174,19 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/kualifikasi_penyedia.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/kualifikasi_penyedia.js" />
+        </put-list-attribute>
+    </definition>
+    <definition name="app.admin.master.aplikasi.material" extends="app.layout.admin">
+        <put-attribute name="title" value="Master Material"/>
+        <put-attribute name="body">
+            <definition template="/WEB-INF/views/admin/pages/master/aplikasi/material.jsp">
+            </definition>
+        </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/material.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.metode_pengadaan" extends="app.layout.admin">
         <put-attribute name="title" value="Master Metode Pengadaan"/>
@@ -130,27 +194,42 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/metode_pengadaan.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/metode_pengadaan.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.negara" extends="app.layout.admin">
         <put-attribute name="title" value="Master Negara"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/negara.jsp">
             </definition>
+
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/negara.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.penawaran_harga" extends="app.layout.admin">
         <put-attribute name="title" value="Master Penawaran Harga"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/penawaran_harga.jsp">
             </definition>
+
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/penawaran_harga.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.penyampaian_dokumen" extends="app.layout.admin">
         <put-attribute name="title" value="Master Kategori Penyampaian Dokumen"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/penyampaian_dokumen.jsp">
             </definition>
+
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/penyampaian_dokumen.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.provinsi" extends="app.layout.admin">
         <put-attribute name="title" value="Master Provinsi"/>
@@ -158,34 +237,53 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/provinsi.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/provinsi.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.sistem_pengadaan" extends="app.layout.admin">
         <put-attribute name="title" value="Master Sistem Pengadaan"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/sistem_pengadaan.jsp">
             </definition>
+
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/sistem_pengadaan.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.sub_bidang" extends="app.layout.admin">
         <put-attribute name="title" value="Master Sub Bidang"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/sub_bidang.jsp">
             </definition>
+
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/sub_bidang.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.syarat_kualifikasi" extends="app.layout.admin">
         <put-attribute name="title" value="Master Syarat Kualifikasi"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/syarat_kualifikasi.jsp">
             </definition>
+
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/syarat_kualifikasi.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.unit" extends="app.layout.admin">
         <put-attribute name="title" value="Master Unit"/>
         <put-attribute name="body">
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/unit.jsp">
             </definition>
+
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/unit.js" />
+        </put-list-attribute>
     </definition>
     <definition name="app.admin.master.aplikasi.wilayah" extends="app.layout.admin">
         <put-attribute name="title" value="Master Wilayah"/>
@@ -193,5 +291,8 @@
             <definition template="/WEB-INF/views/admin/pages/master/aplikasi/wilayah.jsp">
             </definition>
         </put-attribute>
+        <put-list-attribute name="scriptPage">
+            <add-attribute value="assets/admin/pages/master/aplikasi/wilayah.js" />
+        </put-list-attribute>
     </definition>
 </tiles-definitions>

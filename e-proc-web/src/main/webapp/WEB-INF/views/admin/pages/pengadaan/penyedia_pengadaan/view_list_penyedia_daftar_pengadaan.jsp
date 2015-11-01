@@ -17,7 +17,6 @@
 
                             <tbody>
 
-                                <?php if ($sts == '5') {?>
                                 <tr style="background-color:PowderBlue;">
                                     <td colspan="4"><b>Harga Penawaran Peserta</b></td>
                                 </tr>
@@ -33,7 +32,7 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <?php }?> 
+
                             </tbody>
                         </table>
                     </div>
@@ -75,7 +74,7 @@
                                                 <tr bgcolor="#ffff99">
                                                     <td width="40%">Jadwal : 18-08-2015 09:00 - 19-08-2015 14:00</td>
                                                     <td width="30%">Pertanyaan : 0</td>
-                                                    <td align="right"><a href="<?php echo site_url() ?>rekanan/view_ask"><b class="text_red">[Kirim Penjelasan]</b></a></td>
+                                                    <td align="right"><a href=""><b class="text_red">[Kirim Penjelasan]</b></a></td>
                                                 </tr>
                                             </tbody>
                                         </table> 
@@ -83,7 +82,7 @@
                                             <tbody>
                                                 <tr bgcolor="#ffff99">
                                                     <td width="40%">Jadwal : 18-08-2015 09:00 - 19-08-2015 14:00</td> 
-                                                    <td align="right"><a href="<?php echo site_url() ?>rekanan/auction_view"><b class="text_red">[ Evaluasi Harga ]</b></a></td>
+                                                    <td align="right"><a href=""><b class="text_red">[ Evaluasi Harga ]</b></a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -216,11 +215,10 @@
                                                 <th>Status</th>
                                             </tr>
                                             <tr>
-                                                <td>
-                                                    <?php echo $status_kirim_kualifikasi; ?></td>
+                                                <td></td>
                                             </tr>
                                         </table>
-                                        <form method="post" action="<?php echo base_url('rekanan/open_syarat');?>">
+                                        <form method="post" action="">
                                             <table class="table-hover table">
                                                 <tr>
                                                     <th>Pengiriman Dokumen Kualifikasi</th>
@@ -286,8 +284,7 @@
                                                 <th>Status</th>
                                             </tr>
                                             <tr id="sts">
-                                                <td>
-                                                    <?php echo $status_kirim_penawaran; ?></td>
+                                                <td></td>
                                             </tr>
                                             <tr id="sts2" style="display:none">
                                                 <td>
@@ -313,13 +310,13 @@
                                             </tr>
                                         </table>
                                         <table class="table-hover table">
-                                            <tr id="langkah0" <?php echo $style0; ?>>
+                                            <tr id="langkah0" >
                                                 <th>Pengiriman Dokumen Penawaran</th>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <table class="table table-bordered">
-                                                        <tr id="langkah1" <?php echo $style1; ?>>
+                                                        <tr id="langkah1">
                                                             <td width="20%" class="tdtitle">Langkah 1</td>
                                                             <td>Enkripsi Dokumen<br>
                                                                 <ul>
@@ -354,7 +351,7 @@ NEwEOBQcjhwj9N7i/9DAEU7Bw1GBgTQ==</textarea></td>
                                                                     </tr>
                                                                 </table></td>
                                                         </tr>
-                                                        <tr id="langkah2" <?php echo $style2; ?>>
+                                                        <tr id="langkah2">
                                                             <td class="tdtitle">Langkah 2</td>
                                                             <td><b>Kirim Dokumen</b><br>
                                                                 <ul>
@@ -368,7 +365,7 @@ NEwEOBQcjhwj9N7i/9DAEU7Bw1GBgTQ==</textarea></td>
                                                                 </div>
                                                             </td>
                                                         </tr>
-                                                        <tr id="langkah3" <?php echo $style3; ?>>
+                                                        <tr id="langkah3">
                                                             <td class="tdtitle">Langkah 3</td>
                                                             <td> 
                                                                 <table>

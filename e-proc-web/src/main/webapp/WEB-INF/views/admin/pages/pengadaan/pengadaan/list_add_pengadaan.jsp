@@ -67,7 +67,7 @@
                                 <td>Terbatas</td>
                                 <td nowrap>Rp. 350.000.000.000</td>
                                 <td align="center">
-                                    <a href="<?php echo base_url('lelang/form/B02');?>" class="widget-icon widget-icon-dark">
+                                    <a href="" class="widget-icon widget-icon-dark">
                                         <span class="icon-pencil"></span>
                                     </a>
                                 </td>

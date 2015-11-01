@@ -7,6 +7,14 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_delete_bank.IPDeleteBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_delete_bank.OPDeleteBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_find_ref_bank.IPFindRefBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_find_ref_bank.OPFindRefBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_get_detail_bank.IPLibDetailBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_get_detail_bank.OPLibDetailBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_xml_provinsi3.InputParametersXMLProvinsi;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_xml_provinsi3.OutputParametersXMLProvinsi;
 
 
 /**
@@ -19,10 +27,15 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @XmlSeeAlso({
     com.oracle.xmlns.pcbpel.adapter.db.sp.sp_list_xml_provinsi.ObjectFactory.class,
+    com.oracle.xmlns.pcbpel.adapter.db.sp.sp_delete_bank.ObjectFactory.class,
+    com.oracle.xmlns.pcbpel.adapter.db.sp.sp_find_ref_bank.ObjectFactory.class,
+    com.oracle.xmlns.pcbpel.adapter.db.sp.sp_get_detail_bank.ObjectFactory.class,
     com.oracle.xmlns.pcbpel.adapter.db.sp.sp_get_xml_bank.ObjectFactory.class,
     com.oracle.xmlns.pcbpel.adapter.db.sp.sp_list_json_provinsi.ObjectFactory.class,
     com.oracle.xmlns.pcbpel.adapter.db.sp.sp_list_xml_provinsi_2.ObjectFactory.class,
-    com.oracle.xmlns.pcbpel.adapter.db.sp.sp_simpan_bank.ObjectFactory.class
+    com.oracle.xmlns.pcbpel.adapter.db.sp.sp_simpan_bank.ObjectFactory.class,
+    com.oracle.xmlns.pcbpel.adapter.db.sp.sp_xml_provinsi3.ObjectFactory.class,
+    com.oracle.xmlns.pcbpel.adapter.db.sp.svc_get_count_user.ObjectFactory.class
 })
 public interface ExecutePtt {
 
@@ -86,5 +99,65 @@ public interface ExecutePtt {
     public com.oracle.xmlns.pcbpel.adapter.db.sp.sp_get_xml_bank.OutputParameters getListXMLBank(
         @WebParam(name = "InputParameters", targetNamespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_get_XML_Bank", partName = "InputParamXMLBank")
         com.oracle.xmlns.pcbpel.adapter.db.sp.sp_get_xml_bank.InputParameters inputParamXMLBank);
+
+    /**
+     * 
+     * @param inputParamIdUser
+     * @return
+     *     returns com.oracle.xmlns.pcbpel.adapter.db.sp.svc_get_count_user.OutputParameters
+     */
+    @WebMethod(operationName = "get_IdUser_Existing", action = "get_IdUser_Existing")
+    @WebResult(name = "OutputParameters", targetNamespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/svc_get_count_user", partName = "OutputParamIdUser")
+    public com.oracle.xmlns.pcbpel.adapter.db.sp.svc_get_count_user.OutputParameters getIdUserExisting(
+        @WebParam(name = "InputParameters", targetNamespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/svc_get_count_user", partName = "InputParamIdUser")
+        com.oracle.xmlns.pcbpel.adapter.db.sp.svc_get_count_user.InputParameters inputParamIdUser);
+
+    /**
+     * 
+     * @param inputParamXMLProv3
+     * @return
+     *     returns com.oracle.xmlns.pcbpel.adapter.db.sp.sp_xml_provinsi3.OutputParametersXMLProvinsi
+     */
+    @WebMethod(operationName = "get_list_XML_Provinsi3", action = "get_list_XML_Provinsi3")
+    @WebResult(name = "OutputParametersXMLProvinsi", targetNamespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_XML_Provinsi3", partName = "OutParamXMLProv3")
+    public OutputParametersXMLProvinsi getListXMLProvinsi3(
+        @WebParam(name = "InputParametersXMLProvinsi", targetNamespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_XML_Provinsi3", partName = "InputParamXMLProv3")
+        InputParametersXMLProvinsi inputParamXMLProv3);
+
+    /**
+     * 
+     * @param inputParamDetailBank
+     * @return
+     *     returns com.oracle.xmlns.pcbpel.adapter.db.sp.sp_get_detail_bank.OPLibDetailBank
+     */
+    @WebMethod(operationName = "get_Detil_Bank", action = "get_Detil_Bank")
+    @WebResult(name = "OP_Lib_Detail_Bank", targetNamespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_get_detail_bank", partName = "OutputParamDetailBank")
+    public OPLibDetailBank getDetilBank(
+        @WebParam(name = "IP_Lib_Detail_Bank", targetNamespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_get_detail_bank", partName = "InputParamDetailBank")
+        IPLibDetailBank inputParamDetailBank);
+
+    /**
+     * 
+     * @param inputParamDeleteBank
+     * @return
+     *     returns com.oracle.xmlns.pcbpel.adapter.db.sp.sp_delete_bank.OPDeleteBank
+     */
+    @WebMethod(operationName = "delete_ref_bank", action = "delete_ref_bank")
+    @WebResult(name = "OP_Delete_Bank", targetNamespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_delete_bank", partName = "OutputParamDeleteBank")
+    public OPDeleteBank deleteRefBank(
+        @WebParam(name = "IP_Delete_Bank", targetNamespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_delete_bank", partName = "InputParamDeleteBank")
+        IPDeleteBank inputParamDeleteBank);
+
+    /**
+     * 
+     * @param inputParamFindBank
+     * @return
+     *     returns com.oracle.xmlns.pcbpel.adapter.db.sp.sp_find_ref_bank.OPFindRefBank
+     */
+    @WebMethod(operationName = "find_Ref_Bank", action = "find_Ref_Bank")
+    @WebResult(name = "OP_Find_Ref_Bank", targetNamespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_find_ref_bank", partName = "OutputParamFindBank")
+    public OPFindRefBank findRefBank(
+        @WebParam(name = "IP_Find_Ref_Bank", targetNamespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_find_ref_bank", partName = "InputParamFindBank")
+        IPFindRefBank inputParamFindBank);
 
 }

@@ -9,23 +9,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/master/aplikasi")
 public class MasterAplikasiController {
 
-    @RequestMapping(value = "/badan_usaha", method = RequestMethod.GET)
-    public String badanusaha(ModelMap modelMap){ return "app.admin.master.aplikasi.badan_usaha";}
+    /*@RequestMapping(value = "/badan_usaha", method = RequestMethod.GET)
+    public String badanusaha(ModelMap modelMap){ return "app.admin.master.aplikasi.badan_usaha";} */
 
     /*@RequestMapping(value = "/bank", method = RequestMethod.GET)
     public String bank(ModelMap modelMap){
         return "app.admin.master.aplikasi.bank";
     }*/
-
+    /*
     @RequestMapping(value = "/bidang", method = RequestMethod.GET)
     public String bidang(ModelMap modelMap){
         return "app.admin.master.aplikasi.bidang";
-    }
+    } */
 
+    /*
     @RequestMapping(value = "/dana", method = RequestMethod.GET)
     public String dana(ModelMap modelMap){
         return "app.admin.master.aplikasi.dana";
-    }
+    } */
 
     @RequestMapping(value = "/jadwal", method = RequestMethod.GET)
     public String jadwal(ModelMap modelMap){return "app.admin.master.aplikasi.jadwal";}

@@ -22,7 +22,7 @@
         <div class="content controls">
             <div class="form-row">
                 <div class="col-md-12">
-                    <table id="example1" cellpadding="0" cellspacing="0" width="100%" class="table table-bordered">
+                    <table id="tb_master_badan_usaha" cellpadding="0" cellspacing="0" width="100%" class="table table-bordered">
                         <thead>
                         <tr>
                             <th width="7%">No</th>
@@ -34,7 +34,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <%--<tr>
                             <td>1</td>
                             <td>12345</td>
                             <td>Nama Badan Usaha</td>
@@ -46,7 +46,7 @@
                                     <span class="icon-trash"></span>
                                 </a>
                             </td>
-                        </tr>
+                        </tr>--%>
                         </tbody>
                     </table>
                 </div>
@@ -61,26 +61,28 @@
         <div class="panelx panel-info">
             <div class="panel-heading"><h3 class="panel-title">TAMBAH BADAN USAHA</h3>
             </div>
-            <form method="post" action="#">
+            <form method="post" action="<c:url value="/master/aplikasi/badan_usaha"/>">
+                <input type="hidden" name="mode" value=""/>
                 <div class="panel-body">
                     <div class="content controls">
-                        <div class="form-row">
+                        <div class="form-row"></div>
+                        <div class="form-row" style="display:none;">
                             <div class="col-md-2">ID Badan Usaha</div>
-                            <div class="col-md-3"><input type="text" class="form-control" maxlength="30" value=""/></div>
+                            <div class="col-md-3"><input type="hidden" name="inIdBadanUsaha" id="inIdBadanUsaha" class="form-control" maxlength="30" value=""/></div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-2">Nama</div>
                             <div class="col-md-4">
-                                <input type="text" maxlength="50" class="form-control" value=""/>
+                                <input type="text" maxlength="50" name="inNama" id="inNama" class="validate[required, minSize[5]] form-control" value=""/>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-2">Keterangan</div>
-                            <div class="col-md-8"><input type="text" maxlength="100" class="form-control"  value=""/></div>
+                            <div class="col-md-8"><input type="text" name="inKeterangan" id="inKeterangan" maxlength="100" class="form-control"  value=""/></div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-2">Flag Tampil</div>
-                            <div class="col-md-3"><div class="checkbox-inline"><input type="Checkbox" class="form-control"></div></div>
+                            <div class="col-md-3"><div class="checkbox-inline"><input name="inFlagTampil" id="inFlagTampil" type="Checkbox" class="form-control"></div></div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-2"></div>
@@ -151,14 +153,14 @@
                 <h4 class="modal-title">Apakah yakin akan menghapus data ?</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success btn-clean" data-dismiss="modal">Yes</button>
+                <button type="button" id="btn_delete_badan_usaha" class="btn btn-success btn-clean" data-dismiss="modal">Yes</button>
                 <button type="button" class="btn btn-danger btn-clean" data-dismiss="modal">No</button>
             </div>
         </div>
     </div>
 </div>
 <!--END HTML MODAL-->
-<!--START JAVASCRIPT-->
+<!--START JAVASCRIPT
 <script>
     $(document).ready(
             function() {
@@ -182,4 +184,4 @@
 
             });
 </script>
-<!--END JAVASCRIPT-->
+END JAVASCRIPT-->

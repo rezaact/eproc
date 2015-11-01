@@ -25,7 +25,23 @@
                         </goals>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role.wsdl</wsdlFile>
+                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/LIB_Eproc/WS_Library_List.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/LIB_Eproc/WS_Library_List?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/WS_Library_List.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-WS_Library_List</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>secman/WS_Secman_Role.wsdl</wsdlFile>
                             </wsdlFiles>
                             <packageName></packageName>
                             <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/Eproc_Secman/WS_Secman_Role?wsdl</wsdlLocation>
@@ -40,15 +56,165 @@
                         </goals>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/LIB_Eproc/WS_Library_List.wsdl</wsdlFile>
+                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_BADAN_USAHA.wsdl</wsdlFile>
                             </wsdlFiles>
                             <packageName></packageName>
-                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/LIB_Eproc/WS_Library_List?WSDL</wsdlLocation>
-                            <staleFile>${project.build.directory}/jaxws/stale/WS_Library_List.stale</staleFile>
+                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_BADAN_USAHA?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/WS_MASTER_REF_BADAN_USAHA.stale</staleFile>
                         </configuration>
-                        <id>wsimport-generate-WS_Library_List</id>
+                        <id>wsimport-generate-WS_MASTER_REF_BADAN_USAHA</id>
                         <phase>generate-sources</phase>
                     </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_BANK.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_BANK?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/WS_MASTER_REF_BANK.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-WS_MASTER_REF_BANK</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_BIDANG.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_BIDANG?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/WS_MASTER_REF_BIDANG.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-WS_MASTER_REF_BIDANG</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_SUB_BIDANG.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_SUB_BIDANG?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/WS_MASTER_REF_SUB_BIDANG.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-WS_MASTER_REF_SUB_BIDANG</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_DANA.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_DANA?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/WS_MASTER_REF_DANA.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-WS_MASTER_REF_DANA</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_DOKUMEN.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_DOKUMEN?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/WS_MASTER_REF_DOKUMEN.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-WS_MASTER_REF_DOKUMEN</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_JENIS_ANGGARAN.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_JENIS_ANGGARAN?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/WS_MASTER_REF_JENIS_ANGGARAN.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-WS_MASTER_REF_JENIS_ANGGARAN</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_KRITERIA.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_KRITERIA?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/WS_MASTER_REF_KRITERIA.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-WS_MASTER_REF_KRITERIA</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_KBLI.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_KBLI?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/WS_MASTER_REF_KBLI.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-WS_MASTER_REF_KBLI</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_KUALIFIKASI_PENYEDIA.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_KUALIFIKASI_PENYEDIA?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/WS_MASTER_REF_KUALIFIKASI_PENYEDIA.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-WS_MASTER_REF_KUALIFIKASI_PENYEDIA</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>192.168.69.203_8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_NEGARA.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <wsdlLocation>http://192.168.69.203:8001/soa-infra/services/latihan/SOA_Master/WS_MASTER_REF_NEGARA?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/WS_MASTER_REF_NEGARA.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-WS_MASTER_REF_NEGARA</id>
+                        <phase>generate-sources</phase>
+                    </execution>            
                 </executions>
                 <dependencies>
                     <dependency>
@@ -58,7 +224,7 @@
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
+                    <sourceDestDir>${basedir}/src/main/java/</sourceDestDir>
                     <xnocompile>true</xnocompile>
                     <verbose>true</verbose>
                     <extension>true</extension>

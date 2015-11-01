@@ -1,12 +1,7 @@
 package id.co.iconpln.eproc.web.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import id.co.iconpln.eproc.db.domain.ComboDataModel;
 import id.co.iconpln.eproc.db.service.AplicationMenuService;
-import id.co.iconpln.eproc.db.service.LibraryService;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,8 +18,7 @@ public class LoginController {
     @Autowired
     private AplicationMenuService applicationMenuService;
     
-    @Autowired
-    private LibraryService libService;
+    
 
     @RequestMapping(value = "/login/success")
     public String loginSuccess(ModelMap modelMap) throws JsonProcessingException {
@@ -49,18 +43,4 @@ public class LoginController {
     public String profile(ModelMap modelMap) {
         return "app.portal.account.login";
     }
-    
-    @RequestMapping(value = "/portal/library", method = RequestMethod.GET)
-    public String getProvinsi(ModelMap modelMap) {
-        List<ComboDataModel> listComboBox = libService.getListProvinsi();
-        Map<String,String> country = new LinkedHashMap<String,String>();
-        
-        for(ComboDataModel c : listComboBox){
-            country.put(c.getId(), c.getNama());
-        }
-                
-        modelMap.put("listComboBox", country);
-        return "app.layout.portal.library";
-    }
-
 }

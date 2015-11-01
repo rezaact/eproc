@@ -3,12 +3,17 @@
  */
 
 var selectedRow;
+var table;
 
 $(document).ready(
     function() {
         $("#master_bank_list_btnadd").click(function() {
             $("#master_bank_form_add").show("slow");
             $("#master_bank_list").hide();
+            $("#master_bank_form_add select[name='inKodeNegara']").val("");
+            $("#master_bank_form_add form").trigger("reset");
+            $("#master_bank_form_add input[name='mode']").val("simpan");
+
         });
 
         $(".master_bank_form_add_btncancel").click(function(e) {
@@ -16,22 +21,48 @@ $(document).ready(
             $("#master_bank_list").show("slow");
             $("#master_bank_form_add").hide();
             $("#master_bank_form_edit").hide();
+            table.ajax.reload();
         });
 
         $(".master_bank_list_btnedit").click(function(e) {
             e.preventDefault();
-            $("#master_bank_form_edit").show("slow");
+            $("#master_bank_form_add").show("slow");
             $("#master_bank_list").hide();
-
+            $("#master_bank_form_add input[name='mode']").val("update");
             console.log('selected row', selectedRow);
 
         });
 
+        hidePanelMessage();
         initComboKodeNegara();
-        initFormKodeBank();
+        //initFormKodeBank1();
+        initFormKodeBank2();
         initDataTableBank();
+        initDeleteBank();
     }
 );
+
+function initDeleteBank(){
+
+    $('#btn_delete_bank').click(function(){
+        console.log(selectedRow);
+        $.ajax({
+            type: "POST",
+            url: BASE_URL+"api/master/bank/delete",
+            data: {
+                kodeBank : selectedRow.kodeBank
+            },
+            success: function (response) {
+                console.log(response);
+                table.ajax.reload();
+            }
+        });
+    })
+}
+
+function hidePanelMessage(){
+    $('.panel-message').hide()
+}
 
 function initComboKodeNegara(){
     //init combo kode negara
@@ -41,79 +72,66 @@ function initComboKodeNegara(){
     //console.log('prm_name', $(prm_name).val());
 }
 
-/*function initFormKodeBank2(){
+function initFormKodeBank2(){
 
-    jQuery("#formID2").validationEngine({'custom_error_messages' : {
-
-        '#someId' : {
+    $("#master_bank_form_add form").validationEngine({
+        custom_error_messages : {
+            '#inKodeBank' : {
                 'required': {
-                    'message': "This is a custom message that is only attached to the input with id 'someId' if it has the validation of 'required'. This will always display, even if it has othercustom messages."
+                    'message': "KodeBank Harus Diisi"
                 },
-                'custom[min]': {
-                    'message': "This is a custom message that is only attached to the input with id 'someID' if it has the validation of 'custom[min[someNumber]]'. This will always display, even if it has other custom messages."
+                'custom[onlyLetterNumber]':{
+                    'message': "KodeBank Hanya boleh diisi Huruf dan angka"
                 }
-        },
-
-        '.someClass': {
-        'equals': {
-            'message': "This is a custom message that is only attached to inputs that have the class of
-            'someClass' and the validation type of 'equals'. This will be displayed only on
-            inputs without an ID message."
-        }
-    },
-    'required' {
-        'message': "This is a custom message that replaces the normal error message for the validation
-        'required'. This only displays when there are no Class or ID messages."
-    }
-}
-});
-
-
-
-}*/
-
-function initFormKodeBank() {
-    form = $('#master_bank_form_add form');
-    form.validate({
-        rules: {
-            prm_kode_negara: {
-                required: true
             },
-            prm_kode_bank: {
-                required: true,
-                digits: true
-            },
-            prm_name: {
-                required: true,
-                minlength: 3
-            }
-        },
-        messages: {
-            prm_kode_negara: {
-                required: 'kode negara harus di isi'
-            },
-            prm_kode_bank: {
-                required: 'kode bank harus di isi',
-                digits: 'Karakter kode bank harus angka'
-            },
-            prm_name: {
-                required: 'Name bank harus di isi',
-                minlength: 'Karakter nama bank masih kurang'
+
+            '#inNama' : {
+                'required': {
+                    'message': "Nama Bank Harus Diisi"
+                },
+                'minSize':{
+                    'message': "Nama Bank minimal 5 karakter"
+                }
             }
         },
 
+        onValidationComplete: function(form, status){
+            if(status==true){
+                //alert('submit');
 
-        submitHandler: function (data) {
-            form[0].submit();
-            //alert('submitter');
+                //var validasi= form1.validationEngine('validate');
+                $.ajax({
+                    type: "POST",
+                    url: BASE_URL+"api/master/bank/simpan",
+                    data: form.serializeArray(),
+                    success: function (response) {
+                        console.log(response);
+                        showList(
+                            $('#master_bank_form_add'),
+                            response.SAVEREFBANK,
+                            response.OUTMESSAGE
+                        );
+                        if(response.SAVEREFBANK=='1'){
+
+                        }else{
+                            //do nothing
+                        }
+                    }
+                });
+            }else{
+                //alert('error');
+            }
         }
+
+
     });
 
 }
 
+
 function initDataTableBank(){
 
-    $('#tb_master_bank').dataTable( {
+    table = $('#tb_master_bank').DataTable( {
         "processing": true,
         "serverSide": true,
         "aoColumnDefs": [
@@ -156,7 +174,7 @@ function initDataTableBank(){
             }
         ],
         "ajax": {
-            "url": BASE_URL + "/master/aplikasi/bank/json",
+            "url": BASE_URL + "api/master/bank/json",
             "type": "GET",
             "dataSrc" : function(json){
                 return json.data.bankList;
@@ -170,7 +188,6 @@ function initDataTableBank(){
             {"data": "kota", "defaultContent": ""},
             {"data": "flagTampil", "defaultContent": ""},
             {"data": "kodeBank", "defaultContent": ""}
-
         ],
 
         "drawCallback": function( settings ) {
@@ -184,24 +201,65 @@ function initDatatableAction(){
 
     $(".master_bank_list_btnedit").click(function(e) {
         e.preventDefault();
-        $("#master_bank_form_edit").show("slow");
+        $("#master_bank_form_add").show("slow");
         $("#master_bank_list").hide();
+        $("#master_bank_form_add input[name='mode']").val("update");
     });
 
-    var table = $('#tb_master_bank').DataTable();
+    //var table = $('#tb_master_bank').DataTable();
     $('#tb_master_bank tbody').on( 'click', 'tr', function () {
-        fillForm(table.row( this ).data());
+        selectedRow = table.row(this).data();
+        console.log(selectedRow);
+        fillForm(selectedRow);
     } );
+
+    //252
+    //88
+
+    //telkom cab bandung, intan.//13.00, reza.fitrianto
 }
 
 function fillForm(selectedRow){
+
     console.log('selected row', selectedRow);
-    $("#master_bank_form_edit select[name='prm_kode_negara']").val(selectedRow.ID_KODE_NEGARA);
-    $("#master_bank_form_edit input[name='prm_kode_bank']").val(selectedRow.KODE_BANK);
-    /*$("#master_bank_form_edit form input[name='prm_kode_bank']").val(selectedRow.KODE_BANK);*/
+    //
+    $("#master_bank_form_add select[name='inKodeNegara']").val(selectedRow.kodeNegara);
+    $("#master_bank_form_add input[name='inKodeBank']").val(selectedRow.kodeBank);
+    $("#master_bank_form_add input[name='inNama']").val(selectedRow.nama);
+    $("#master_bank_form_add input[name='inCabang']").val(selectedRow.cabang);
+    $("#master_bank_form_add input[name='inKota']").val(selectedRow.kota);
+    $("#master_bank_form_add textarea[name='inAlamat']").val(selectedRow.alamat);
+    $("#master_bank_form_add input[name='inFlagTampil']").val(selectedRow.alamat);
+
+    $.ajax({
+        type: "POST",
+        url: BASE_URL+"api/master/bank/get_by_kodebank",
+        data: {
+            kodeBank : selectedRow.kodeBank
+        },
+        success: function (response) {
+            console.log(response);
+        }
+    });
+
 }
 
 
+function showList(form, success, message){
+    $(form).hide();
+    $("#master_bank_list").show('slow');
+
+    //show message
+    if(success=='1'){
+        $('#message-success').show('slow');
+        $('#message-error').hide();
+    }else{
+        $('#message-success').hide()
+        $('#message-error').show('slow');
+        $('#message-error .panel-footer').html(message);
+    }
+    table.ajax.reload();
+}
 
 /*function initDataTableBank(){
     console.log('initDataTableBank');

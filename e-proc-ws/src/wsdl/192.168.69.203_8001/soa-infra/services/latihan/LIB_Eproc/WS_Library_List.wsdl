@@ -2,15 +2,20 @@
 <wsdl:definitions
      name="WS_Library_List"
      targetNamespace="http://oracle.com/sca/soapservice/Eproc_Secman/LIB_Eproc/WS_Library_List"
-     xmlns:xocpadss="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_list_XML_provinsi"
      xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:xocpadss2="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_simpan_bank"
+     xmlns:xocpadss1="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_list_XML_Provinsi_2"
+     xmlns:xocpadss6="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_get_detail_bank"
+     xmlns:xocpadss5="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_XML_Provinsi3"
+     xmlns:xocpadss4="http://xmlns.oracle.com/pcbpel/adapter/db/sp/svc_get_count_user"
+     xmlns:xocpadss3="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_get_XML_Bank"
+     xmlns:xocpadss="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_list_XML_provinsi"
+     xmlns:xocpadss7="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_delete_bank"
+     xmlns:xocpadss8="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_find_ref_bank"
      xmlns:inp1="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_list_Json_provinsi"
      xmlns:tns="http://oracle.com/sca/soapservice/Eproc_Secman/LIB_Eproc/WS_Library_List"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-     xmlns:xocpadss2="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_simpan_bank"
-     xmlns:xocpadss1="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_list_XML_Provinsi_2"
      xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-     xmlns:xocpadss3="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_get_XML_Bank"
     >
     <wsdl:documentation>
         <abstractWSDL>http://192.168.69.203:8001/soa-infra/services/latihan/LIB_Eproc!1.0/WS_Library_List.wsdl</abstractWSDL>
@@ -35,6 +40,26 @@
         <xsd:schema>
             <xsd:import schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/LIB_Eproc/WS_Library_List?XSD=xsd/sp_get_XML_Bank_sp.xsd"
                  namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_get_XML_Bank"/>
+        </xsd:schema>
+        <xsd:schema>
+            <xsd:import schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/LIB_Eproc/WS_Library_List?XSD=xsd/svc_get_count_user_sp.xsd"
+                 namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/svc_get_count_user"/>
+        </xsd:schema>
+        <xsd:schema>
+            <xsd:import schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/LIB_Eproc/WS_Library_List?XSD=xsd/sp_XML_Provinsi3_sp.xsd"
+                 namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_XML_Provinsi3"/>
+        </xsd:schema>
+        <xsd:schema>
+            <xsd:import schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/LIB_Eproc/WS_Library_List?XSD=xsd/sp_get_detail_bank_sp.xsd"
+                 namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_get_detail_bank"/>
+        </xsd:schema>
+        <xsd:schema>
+            <xsd:import schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/LIB_Eproc/WS_Library_List?XSD=xsd/sp_delete_bank_sp.xsd"
+                 namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_delete_bank"/>
+        </xsd:schema>
+        <xsd:schema>
+            <xsd:import schemaLocation="http://192.168.69.203:8001/soa-infra/services/latihan/LIB_Eproc/WS_Library_List?XSD=xsd/sp_find_ref_bank_sp.xsd"
+                 namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/sp_find_ref_bank"/>
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="requestMessage">
@@ -67,6 +92,36 @@
     <wsdl:message name="repMsgXMLBank">
         <wsdl:part name="OutputParamXMLBank" element="xocpadss3:OutputParameters"/>
     </wsdl:message>
+    <wsdl:message name="reqIduserExist">
+        <wsdl:part name="InputParamIdUser" element="xocpadss4:InputParameters"/>
+    </wsdl:message>
+    <wsdl:message name="repIduserExist">
+        <wsdl:part name="OutputParamIdUser" element="xocpadss4:OutputParameters"/>
+    </wsdl:message>
+    <wsdl:message name="reqXMLProvinsi3">
+        <wsdl:part name="InputParamXMLProv3" element="xocpadss5:InputParametersXMLProvinsi"/>
+    </wsdl:message>
+    <wsdl:message name="repXMLProvinsi3">
+        <wsdl:part name="OutParamXMLProv3" element="xocpadss5:OutputParametersXMLProvinsi"/>
+    </wsdl:message>
+    <wsdl:message name="reqDetailBank">
+        <wsdl:part name="InputParamDetailBank" element="xocpadss6:IP_Lib_Detail_Bank"/>
+    </wsdl:message>
+    <wsdl:message name="repDetailBank">
+        <wsdl:part name="OutputParamDetailBank" element="xocpadss6:OP_Lib_Detail_Bank"/>
+    </wsdl:message>
+    <wsdl:message name="reqDeleteBank">
+        <wsdl:part name="InputParamDeleteBank" element="xocpadss7:IP_Delete_Bank"/>
+    </wsdl:message>
+    <wsdl:message name="repDeleteBank">
+        <wsdl:part name="OutputParamDeleteBank" element="xocpadss7:OP_Delete_Bank"/>
+    </wsdl:message>
+    <wsdl:message name="reqFindBank">
+        <wsdl:part name="InputParamFindBank" element="xocpadss8:IP_Find_Ref_Bank"/>
+    </wsdl:message>
+    <wsdl:message name="repFindBank">
+        <wsdl:part name="OutputParamFindBank" element="xocpadss8:OP_Find_Ref_Bank"/>
+    </wsdl:message>
     <wsdl:portType name="execute_ptt">
         <wsdl:operation name="get_list_Json_Provinsi">
             <wsdl:input message="tns:requestMessage"/>
@@ -87,6 +142,26 @@
         <wsdl:operation name="get_list_XML_Bank">
             <wsdl:input message="tns:reqMsgXMLBank"/>
             <wsdl:output message="tns:repMsgXMLBank"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_IdUser_Existing">
+            <wsdl:input message="tns:reqIduserExist"/>
+            <wsdl:output message="tns:repIduserExist"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_list_XML_Provinsi3">
+            <wsdl:input message="tns:reqXMLProvinsi3"/>
+            <wsdl:output message="tns:repXMLProvinsi3"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_Detil_Bank">
+            <wsdl:input message="tns:reqDetailBank"/>
+            <wsdl:output message="tns:repDetailBank"/>
+        </wsdl:operation>
+        <wsdl:operation name="delete_ref_bank">
+            <wsdl:input message="tns:reqDeleteBank"/>
+            <wsdl:output message="tns:repDeleteBank"/>
+        </wsdl:operation>
+        <wsdl:operation name="find_Ref_Bank">
+            <wsdl:input message="tns:reqFindBank"/>
+            <wsdl:output message="tns:repFindBank"/>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="execute_pttBinding" type="tns:execute_ptt">
@@ -129,6 +204,51 @@
         </wsdl:operation>
         <wsdl:operation name="get_list_XML_Bank">
             <soap:operation style="document" soapAction="get_list_XML_Bank"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_IdUser_Existing">
+            <soap:operation style="document" soapAction="get_IdUser_Existing"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_list_XML_Provinsi3">
+            <soap:operation style="document" soapAction="get_list_XML_Provinsi3"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_Detil_Bank">
+            <soap:operation style="document" soapAction="get_Detil_Bank"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete_ref_bank">
+            <soap:operation style="document" soapAction="delete_ref_bank"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="find_Ref_Bank">
+            <soap:operation style="document" soapAction="find_Ref_Bank"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

@@ -5,17 +5,16 @@
  */
 package id.co.iconpln.eproc.db.service.impl;
 
-import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_list_xml_provinsi_2.InputParameters;
-import id.co.iconpln.eproc.db.domain.ComboDataModel;
 import id.co.iconpln.eproc.db.service.LibraryService;
 import id.co.iconpln.eproc.ws.CommonWS;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.stereotype.Service;
-import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_list_xml_provinsi_2.OutputParameters;
-import id.co.iconpln.eproc.db.domain.xml.ListProvinsi;
-import id.co.iconpln.eproc.db.domain.xml.Provinsi;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_xml_provinsi3.InputParametersXMLProvinsi;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_xml_provinsi3.OutputParametersXMLProvinsi;
+import id.co.iconpln.eproc.db.domain.xml.ListComboModel;
+import id.co.iconpln.eproc.db.domain.xml.ComboModel;
 import java.io.StringReader;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
@@ -27,24 +26,25 @@ import javax.xml.bind.Unmarshaller;
 public class LibraryServiceImpl implements LibraryService {
 
     @Override
-    public List<ComboDataModel> getListProvinsi() {
-        List<ComboDataModel> list = new ArrayList<ComboDataModel>();
-        ComboDataModel c = new ComboDataModel();
+    public Map<String,String> getListProvinsi() {
+        Map<String,String> combo = new LinkedHashMap<String,String>();
         try {
-            OutputParameters o = CommonWS.getLibraryService().getListXMLProvinsi2(new InputParameters());
-            System.out.println("o.getGETXMLPROVINSI2().getValue() : " + o.getGETXMLPROVINSI2().getValue());
-            JAXBContext jaxbContext = JAXBContext.newInstance(ListProvinsi.class);
+            OutputParametersXMLProvinsi o = CommonWS.getLibraryService().getListXMLProvinsi3(new InputParametersXMLProvinsi());
+            System.out.println("o.getGETXMLPROVINSI2().getValue() : " + o.getGETXMLPROVINSI3().getValue());
+            
+            JAXBContext jaxbContext = JAXBContext.newInstance(ListComboModel.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            ListProvinsi props = (ListProvinsi) jaxbUnmarshaller.unmarshal(new StringReader(o.getGETXMLPROVINSI2().getValue()));
-            for(Provinsi p : props.getPropinsi()){
-                c = new ComboDataModel(p.getIdProp(), p.getNama());
-                list.add(c);
+            
+            ListComboModel props = (ListComboModel) jaxbUnmarshaller.unmarshal(new StringReader(o.getGETXMLPROVINSI3().getValue()));
+            
+            for(ComboModel p : props.getList()){
+                combo.put(p.getId(), p.getValue());
             }
             
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return list;
+        return combo;
     }
 
 }

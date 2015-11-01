@@ -1,12 +1,19 @@
 package id.co.iconpln.eproc.web.controller.admin.master.aplikasi;
 
-import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_simpan_bank.InputParameters;
-import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_simpan_bank.ObjectFactory;
-import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_simpan_bank.OutputParameters;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_del_ref_bank.IPDelRefBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_del_ref_bank.OPDelRefBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_get_ref_bank.IPGetRefBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_get_ref_bank.OPGetRefBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_ins_ref_bank.IPInsRefBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_ins_ref_bank.OPInsRefBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_ins_ref_bank.ObjectFactory;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_upd_ref_bank.IPUpdRefBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_upd_ref_bank.OPUpdRefBank;
+import com.oracle.xmlns.pcbpel.adapter.db.sp.sp_delete_bank.OPDeleteBank;
 import id.co.iconpln.eproc.db.domain.xml.master.Bank;
 import id.co.iconpln.eproc.db.domain.xml.master.ListBank;
 import id.co.iconpln.eproc.db.service.PlsqlService;
-import id.co.iconpln.eproc.web.util.TransactionResultMessage;
+import id.co.iconpln.eproc.db.service.admin.master.aplikasi.BankService;
 import id.co.iconpln.eproc.ws.CommonWS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,16 +36,20 @@ import java.util.Map;
  */
 
 @Controller
-@RequestMapping(value = "/master/aplikasi/bank")
 public class BankController {
 
     @Autowired
     PlsqlService plsqlService;
 
+    @Autowired
+    BankService bankService;
+
     //fungsi untuk menampilan view master->aplikasi->bank
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET, value = "/master/bank")
     public String bank(ModelMap modelMap, HttpServletRequest request){
         System.out.println("hello");
+
+
 
         Map<String, String> paramIn = new HashMap<>();
         paramIn.put("pkg_name", "P_MASTER_KODE_NEGARA");
@@ -53,8 +64,10 @@ public class BankController {
         return "app.admin.master.aplikasi.bank";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public String simpanBank(ModelMap modelMap,
+    @RequestMapping(method = RequestMethod.POST, value = "api/master/bank/simpan")
+    @ResponseBody
+    public Map<String, Object> simpanBank(ModelMap modelMap,
+                             @RequestParam(value = "mode", defaultValue = "") String mode,
                              @RequestParam(value = "inAlamat", defaultValue = "") String inAlamat,
                              @RequestParam(value = "inCabang", defaultValue = "") String inCabang,
                              @RequestParam(value = "inCreateBy", defaultValue = "") String inCreateBy,
@@ -65,47 +78,101 @@ public class BankController {
     ){
         System.out.println("simpanBank");
 
-
-        System.out.println("test insert ws");
-        try {
-            InputParameters i = new InputParameters();
-            ObjectFactory objectFactory = new ObjectFactory();
-            i.setINALAMAT(objectFactory.createInputParametersINALAMAT(inAlamat));
-            i.setINCABANG(objectFactory.createInputParametersINCABANG(inCabang));
-            i.setINCREATEBY(objectFactory.createInputParametersINCREATEBY("ADMIN")); // --> harus mengambil dari session security
-            i.setINKODEBANK(objectFactory.createInputParametersINKODEBANK(inKodeBank));
-            i.setINKOTA(objectFactory.createInputParametersINKOTA(inKota));
-            i.setINKODENEGARA(objectFactory.createInputParametersINKODENEGARA("ID"));
-            i.setINNAMA(objectFactory.createInputParametersINNAMA(inNama));
-            OutputParameters o = null;
-
-            try{
-                o = CommonWS.getLibraryService().insertSimpanBank(i);
-                System.out.println("OUTMESSAGE : " + o.getSAVEREFBANK().getValue());
-                System.out.println("SAVEREFBANK : " + o.getOUTMESSAGE().getValue());
-
-                modelMap.put("success", o.getSAVEREFBANK().getValue());
-                modelMap.put("message", o.getOUTMESSAGE().getValue());
+        //Parameter untuk mengembalikan nilai controller
+        Map<String, Object> retValue = new HashMap<>();
 
 
-            }catch (Exception e1){
-                e1.printStackTrace();
+        //--- TRANSAKSI SIMPAN ---
+        if(mode.equals("simpan")){
+
+            /*try {
+                //1. Menginisialisasi object InputParameter
+                InputParameters i = new InputParameters();
+                //2. Menginisialisasi object ObjectFactory
+                ObjectFactory objectFactory = new ObjectFactory();
+                i.setINALAMAT(objectFactory.createInputParametersINALAMAT(inAlamat));
+                i.setINCABANG(objectFactory.createInputParametersINCABANG(inCabang));
+                i.setINCREATEBY(objectFactory.createInputParametersINCREATEBY("ADMIN")); // --> harus mengambil dari session security
+                i.setINKODEBANK(objectFactory.createInputParametersINKODEBANK(inKodeBank));
+                i.setINKOTA(objectFactory.createInputParametersINKOTA(inKota));
+                i.setINKODENEGARA(objectFactory.createInputParametersINKODENEGARA("ID"));
+                i.setINNAMA(objectFactory.createInputParametersINNAMA(inNama));
+                OutputParameters o = null;
+
+                try{
+                    *//*
+                        3. Memanggil service menggunakan CommonWs
+                        4. Mengambil Parameter output menggunakan object OutputParameter
+                    *//*
+                    o = CommonWS.getLibraryService().insertSimpanBank(i);
+                    System.out.println("OUTMESSAGE : " + o.getSAVEREFBANK().getValue());
+                    System.out.println("SAVEREFBANK : " + o.getOUTMESSAGE().getValue());
+
+                    retValue.put("OUTMESSAGE", o.getSAVEREFBANK().getValue());
+                    retValue.put("SAVEREFBANK", o.getSAVEREFBANK().getValue());
+
+
+                }catch (Exception e1){
+                    e1.printStackTrace();
+                }
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }*/
+
+            IPInsRefBank i = new IPInsRefBank();
+            ObjectFactory of =
+                    new ObjectFactory();
+            i.setPALAMAT(of.createIPInsRefBankPALAMAT(inAlamat));
+            i.setPCABANG(of.createIPInsRefBankPCABANG(inCabang));// --> harus mengambil dari session security
+            i.setPCREATEBY(of.createIPInsRefBankPCREATEBY("ADMIN"));
+            i.setPKODEBANK(of.createIPInsRefBankPKODEBANK(inKodeBank));
+            i.setPKOTA(of.createIPInsRefBankPKOTA(inKota));
+            i.setPKODENEGARA(of.createIPInsRefBankPKODENEGARA("ID"));
+            i.setPFLAGTAMPIL(of.createIPInsRefBankPFLAGTAMPIL("1"));
+            i.setPNAMA(of.createIPInsRefBankPNAMA(inNama));
+
+            try {
+                OPInsRefBank opInsRefBank = CommonWS.getMasterBankService().insert(i);
+                modelMap.put("success", opInsRefBank.getOUTROWCOUNT().getValue());
+                modelMap.put("message", opInsRefBank.getMSGERROR().getValue());
+
+                System.out.println("getOUTROWCOUNT = " + opInsRefBank.getOUTROWCOUNT().getValue());
+                System.out.println("getMSGERROR = " + opInsRefBank.getMSGERROR().getValue());
+            }catch (Exception e){
+                e.printStackTrace();
             }
-        }catch (Exception e){
-            e.printStackTrace();
+
         }
 
-        /*//hasil dari transaksi
-        TransactionResultMessage trm = new TransactionResultMessage(
-                false, "ORA ERR : 11212"
-        );*/
 
+        //--- TRANSAKSI UPDATE ---
+        if(mode.equals("update")){
+            System.out.println("update data");
 
-        return "redirect:/master/aplikasi/bank";
+            IPUpdRefBank ipUpdRefBank = new IPUpdRefBank();
+            com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_upd_ref_bank.ObjectFactory ob =
+                    new com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_upd_ref_bank.ObjectFactory();
+            ipUpdRefBank.setPFLAGTAMPIL(ob.createIPUpdRefBankPFLAGTAMPIL("1"));
+            // dst
+
+            try {
+                OPUpdRefBank opUpdRefBank = CommonWS.getMasterBankService().update(ipUpdRefBank);
+                modelMap.put("success", opUpdRefBank.getOUTROWCOUNT().getValue());
+                modelMap.put("message", opUpdRefBank.getMSGERROR().getValue());
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }
+
+        return retValue;
     }
 
     // Menampilkan data produk dengan kembalian json
-    @RequestMapping(value = "/json", method = RequestMethod.GET)
+    //master/aplikasi/bank/json
+    @RequestMapping(value = "/api/master/bank/json", method = RequestMethod.GET)
     @ResponseBody
     public Map findJson(
             @RequestParam(value = "draw", defaultValue = "0") int draw,
@@ -123,16 +190,7 @@ public class BankController {
         System.out.println("test get XML");
         try{
 
-            com.oracle.xmlns.pcbpel.adapter.db.sp.sp_get_xml_bank.OutputParameters outputParametersListBank =
-                    CommonWS.getLibraryService().getListXMLBank(new com.oracle.xmlns.pcbpel.adapter.db.sp.sp_get_xml_bank.InputParameters());
-            System.out.println("getGETXMLLISTBANK = " + outputParametersListBank.getGETXMLLISTBANK().getValue());
-            JAXBContext jaxbContext = JAXBContext.newInstance(ListBank.class);
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            ListBank banks = (ListBank) jaxbUnmarshaller.unmarshal(new StringReader(outputParametersListBank.getGETXMLLISTBANK().getValue()));
-
-            /*for(Bank bank : banks.getBankList()){
-                System.out.println("nama bank = " + bank.getNama());
-            }*/
+            ListBank banks = bankService.get("");
 
             map.put("data", banks);
             map.put("recordsTotal", banks.getBankList().size());
@@ -151,5 +209,55 @@ public class BankController {
         return map;
     }
 
+    @RequestMapping(value = "/api/master/bank/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public Map validateKodeBank(
+            //kodeBank
+            @RequestParam(value = "kodeBank", defaultValue = "") String kodeBank,
+            HttpServletRequest request) {
 
+        Map<String, Object> retvalue = new HashMap<>();
+
+        /*
+            kode untuk menghapus bank menggunakan web service
+         */
+        try{
+            IPDelRefBank ipDelRefBank = new IPDelRefBank();
+            com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_del_ref_bank.ObjectFactory objectFactory =
+                    new com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_del_ref_bank.ObjectFactory();
+            //ipDelRefBank.setPKODEBANK(objectFactory.cre);
+            OPDelRefBank opDelRefBank = CommonWS.getMasterBankService().delete(ipDelRefBank);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return retvalue;
+    }
+    
+    @RequestMapping(value = "/api/master/bank/get_by_kodebank", method = RequestMethod.POST)
+    @ResponseBody
+    public Bank getByKodeBank(HttpServletRequest request) {
+
+        Map<String, Object> retvalue = new HashMap<>();
+        Bank bank = null;
+        /*
+            kode untuk mengambil data bank menggunakan web service
+         */
+        try{
+            IPGetRefBank ipGetRefBank = new IPGetRefBank();
+            com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_get_ref_bank.ObjectFactory ob =
+                    new com.oracle.xmlns.pcbpel.adapter.db.sp.pkg_master_get_ref_bank.ObjectFactory();
+            ipGetRefBank.setPNAMA(ob.createIPGetRefBankPNAMA(""));
+            OPGetRefBank op = CommonWS.getMasterBankService().get(ipGetRefBank);
+
+            JAXBContext jaxbContext = JAXBContext.newInstance(Bank.class);
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            bank = (Bank) jaxbUnmarshaller.unmarshal(new StringReader(op.getGETREFBANK().getValue()));
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return bank;
+    }
 }

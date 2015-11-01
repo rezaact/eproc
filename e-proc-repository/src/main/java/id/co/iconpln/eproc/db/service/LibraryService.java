@@ -6,8 +6,7 @@
 
 package id.co.iconpln.eproc.db.service;
 
-import id.co.iconpln.eproc.db.domain.ComboDataModel;
-import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -15,6 +14,6 @@ import java.util.List;
  */
 public interface LibraryService {
     
-    public List<ComboDataModel> getListProvinsi();
+    public Map<String,String> getListProvinsi();
     
 }

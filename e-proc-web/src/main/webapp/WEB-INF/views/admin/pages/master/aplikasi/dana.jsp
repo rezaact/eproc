@@ -13,6 +13,18 @@
 <!-- START LIST -->
 <div class="col-md-12" id="master_dana_list">
     <div class="block block-fill-white">
+        <div class="panel panel-success panel-message" id="message-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Data Berhasil Disimpan</h3>
+            </div>
+        </div>
+
+        <div class="panel panel-danger panel-message" id="message-error">
+            <div class="panel-heading">
+                <h3 class="panel-title">Data Gagal Disimpan</h3>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
         <div class="header" style="background-color:SteelBlue;"><h2 style="color:white;font-size:14px">Master Dana</h2>
             <div class="pull-right"><a id="master_dana_list_btnadd" class="btn btn-success">
                 <span class="icon-plus"></span> Tambah</a>
@@ -21,19 +33,20 @@
         <div class="content controls">
             <div class="form-row">
                 <div class="col-md-12">
-                    <table id="example1" cellpadding="0" cellspacing="0" width="100%" class="table table-bordered">
+                    <table id="tb_master_dana" cellpadding="0" cellspacing="0" width="100%" class="table table-bordered">
                         <thead>
                         <tr>
                             <th width="7%">No</th>
                             <th>ID</th>
                             <th>NAMA</th>
+                            <th>SUMBER</th>
+                            <th>NO. SUMBER</th>
                             <th>KETERANGAN</th>
-                            <th width="10%">FLAG TAMPIL</th>
                             <th width="10%">AKSI</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+<!--                        <tr>
                             <td>1</td>
                             <td>001</td>
                             <td>APBD</td>
@@ -43,7 +56,7 @@
                             <a href="#" class="widget-icon widget-icon-dark master_dana_list_btnedit"><span class="icon-pencil"></span></a>
                             <a href="#master_dana_modal_delete" data-toggle="modal" class="widget-icon widget-icon-dark"><span class="icon-trash"></span></a>
                             </td>
-                        </tr>
+                        </tr>-->
                         </tbody>
                     </table>
                 </div>
@@ -59,39 +72,47 @@
         <div class="panelx panel-info">
             <div class="panel-heading"><h3 class="panel-title">TAMBAH DANA</h3>
             </div>
-            <form method="post" action="#">
+            <form method="post" action="<c:url value="/master/dana"/>">
                 <div class="panel-body">
                     <div class="content controls">
-                        <div class="form-row">
+                        <input type="hidden" name="mode" value=""/>
+                        <input type="hidden" name="idDana" value=""/>
+<!--                        <div class="form-row">
                             <div class="col-md-2">ID Dana</div>
                             <div class="col-md-1"><input type="text" class="form-control" value=""/></div>
-                        </div>
+                        </div>-->
                         <div class="form-row">
                             <div class="col-md-2">Nama Dana</div>
                             <div class="col-md-2">
-                                <input type="text" maxlength="30" class="form-control" value=""/>
+                                <input type="text" maxlength="30" name="inNama" id="inNama" class="form-control" value=""/>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-2">Sumber Loan</div>
                             <div class="col-md-4">
-                                <input type="text" maxlength="100" class="form-control" value=""/>
+                                <input type="text" maxlength="100" name="inSumberLoan" id="inSumberLoan" class="form-control" value=""/>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-2">No Sumber Dana</div>
                             <div class="col-md-2">
-                                <input type="text" maxlength="30" class="form-control" value=""/>
+                                <input type="text" maxlength="30"  name="inNoSumberDana" id="inNoSumberDana" class="form-control" value=""/>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-2">Keterangan</div>
-                            <div class="col-md-4"><input type="text" maxlength="100" class="form-control"  value=""/></div>
+                            <div class="col-md-4"><input type="text" name="inKeterangan" id="inKeterangan" maxlength="100" class="form-control"  value=""/></div>
                         </div>
 
                         <div class="form-row">
                             <div class="col-md-2">Flag Tampil</div>
-                            <div class="col-md-3"><div class="checkbox-inline"><input type="Checkbox" class="form-control"></div></div>
+                            <div class="col-md-3">
+                                <div class="checkbox-inline">
+                                    
+                                        
+                                    <input type="Checkbox" id="flagTampil" value="1" name="flagTampil" class="form-control">
+                                </div>
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-2"></div>
@@ -146,7 +167,10 @@
 
                         <div class="form-row">
                             <div class="col-md-2">Flag Tampil</div>
-                            <div class="col-md-3"><div class="checkbox-inline"><input type="Checkbox" class="form-control" checked></div></div>
+                            <div class="col-md-3">
+                                
+                                <div class="checkbox-inline"><input type="Checkbox" class="form-control" checked></div>
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-2"></div>
@@ -173,7 +197,7 @@
                 <h4 class="modal-title">Apakah yakin akan menghapus data ?</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success btn-clean" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-success btn-clean" data-dismiss="modal" id="btn_delete_dana">Yes</button>
                 <button type="button" class="btn btn-danger btn-clean" data-dismiss="modal">No</button>
             </div>
         </div>
@@ -185,7 +209,7 @@
 <script>
     $(document).ready(
             function() {
-                $("#master_dana_list_btnadd").click(function() {
+                /*$("#master_dana_list_btnadd").click(function() {
                     $("#master_dana_form_add").show("slow");
                     $("#master_dana_list").hide();
                 });
@@ -201,7 +225,7 @@
                     e.preventDefault();
                     $("#master_dana_form_edit").show("slow");
                     $("#master_dana_list").hide();
-                });
+                }); */
 
             });
 </script>

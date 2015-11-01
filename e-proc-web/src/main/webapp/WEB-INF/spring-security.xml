@@ -24,7 +24,7 @@
                              default-target-url="/"
                              username-parameter="j_username"
                              password-parameter="j_password"
-                             authentication-failure-url="/login/error?error=t"
+                             authentication-failure-url="/login?error=true"
                              login-processing-url="/login/process"
                              authentication-failure-handler-ref="authFailureHandler"
                              authentication-success-handler-ref="authSuccessHandler"

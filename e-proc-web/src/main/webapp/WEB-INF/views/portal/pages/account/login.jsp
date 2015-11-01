@@ -33,6 +33,14 @@
                                 <br>
                             </div>
                         </div>
+                        <c:if test="${param.error == 'true'}">
+                            <div class="col-md-12">
+                                <div class="alert alert-danger">
+                                    <b> Login Gagal ... </b> <c:out value="${param.message}"/>!
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                </div>
+                            </div>
+                        </c:if>        
                         <form class="form-horizontal form-without-legend" action="<c:url value='/login/process'/>" method="post" role="form">
                             <div class="form-row">
                                 <div class="col-md-12">
@@ -372,7 +380,7 @@
              * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
              * THE SOFTWARE.
              */
-            !function(a) {
+            !function (a) {
                 function b(b, d) {
                     function e() {
                         if (w) {
@@ -381,11 +389,11 @@
                                 var e = new l;
                                 e.setStackPos(c), x.push(e)
                             }
-                            a(window).on("resize", function() {
+                            a(window).on("resize", function () {
                                 h()
-                            }), a(document).on("mousemove", function(a) {
+                            }), a(document).on("mousemove", function (a) {
                                 y = a.pageX, z = a.pageY
-                            }), B && !A && window.addEventListener("deviceorientation", function() {
+                            }), B && !A && window.addEventListener("deviceorientation", function () {
                                 D = Math.min(Math.max(-event.beta, -30), 30), C = Math.min(Math.max(-event.gamma, -30), 30)
                             }, !0), g(), o("onInit")
                         }
@@ -443,7 +451,7 @@
                                 break;
                             default:
                                 this.speed.y = +(-d.maxSpeedY / 2 + Math.random() * d.maxSpeedY).toFixed(2), this.speed.x += this.speed.y > 0 ? d.minSpeedY : -d.minSpeedY
-                            }
+                        }
                     }
                     function m(a, b) {
                         return b ? void(d[a] = b) : d[a]
@@ -455,14 +463,14 @@
                         void 0 !== d[a] && d[a].call(u)
                     }
                     var p, q, r, s, t, u = b, v = a(b), w = !!document.createElement("canvas").getContext, x = [], y = 0, z = 0, A = !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i), B = !!window.DeviceOrientationEvent, C = 0, D = 0, E = !1;
-                    return d = a.extend({}, a.fn[c].defaults, d), l.prototype.draw = function() {
+                    return d = a.extend({}, a.fn[c].defaults, d), l.prototype.draw = function () {
                         q.beginPath(), q.arc(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY, d.particleRadius / 2, 0, 2 * Math.PI, !0), q.closePath(), q.fill(), q.beginPath();
                         for (var a = x.length - 1; a > this.stackPos; a--) {
                             var b = x[a], c = this.position.x - b.position.x, e = this.position.y - b.position.y, f = Math.sqrt(c * c + e * e).toFixed(2);
                             f < d.proximity && (q.moveTo(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY), d.curvedLines ? q.quadraticCurveTo(Math.max(b.position.x, b.position.x), Math.min(b.position.y, b.position.y), b.position.x + b.parallaxOffsetX, b.position.y + b.parallaxOffsetY) : q.lineTo(b.position.x + b.parallaxOffsetX, b.position.y + b.parallaxOffsetY))
                         }
                         q.stroke(), q.closePath()
-                    }, l.prototype.updatePosition = function() {
+                    }, l.prototype.updatePosition = function () {
                         if (d.parallax) {
                             if (B && !A) {
                                 var a = (s - 0) / 60;
@@ -494,23 +502,23 @@
                                 (this.position.y + this.speed.y + this.parallaxOffsetY > v.height() || this.position.y + this.speed.y + this.parallaxOffsetY < 0) && (this.speed.y = -this.speed.y)
                         }
                         this.position.x += this.speed.x, this.position.y += this.speed.y
-                    }, l.prototype.setStackPos = function(a) {
+                    }, l.prototype.setStackPos = function (a) {
                         this.stackPos = a
                     }, e(), {option: m, destroy: n, start: k, pause: j}
                 }
                 var c = "particleground";
-                a.fn[c] = function(d) {
+                a.fn[c] = function (d) {
                     if ("string" == typeof arguments[0]) {
                         var e, f = arguments[0], g = Array.prototype.slice.call(arguments, 1);
-                        return this.each(function() {
+                        return this.each(function () {
                             a.data(this, "plugin_" + c) && "function" == typeof a.data(this, "plugin_" + c)[f] && (e = a.data(this, "plugin_" + c)[f].apply(this, g))
                         }), void 0 !== e ? e : this
                     }
-                    return"object" != typeof d && d ? void 0 : this.each(function() {
+                    return"object" != typeof d && d ? void 0 : this.each(function () {
                         a.data(this, "plugin_" + c) || a.data(this, "plugin_" + c, new b(this, d))
                     })
-                }, a.fn[c].defaults = {minSpeedX: .1, maxSpeedX: .7, minSpeedY: .1, maxSpeedY: .7, directionX: "center", directionY: "center", density: 1e4, dotColor: "#666666", lineColor: "#666666", particleRadius: 7, lineWidth: 1, curvedLines: !1, proximity: 100, parallax: !0, parallaxMultiplier: 5, onInit: function() {
-                    }, onDestroy: function() {
+                }, a.fn[c].defaults = {minSpeedX: .1, maxSpeedX: .7, minSpeedY: .1, maxSpeedY: .7, directionX: "center", directionY: "center", density: 1e4, dotColor: "#666666", lineColor: "#666666", particleRadius: 7, lineWidth: 1, curvedLines: !1, proximity: 100, parallax: !0, parallaxMultiplier: 5, onInit: function () {
+                    }, onDestroy: function () {
                     }}
             }(jQuery), /**
              * requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel
@@ -518,20 +526,20 @@
              * @see: http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
              * @license: MIT license
              */
-                    function() {
+                    function () {
                         for (var a = 0, b = ["ms", "moz", "webkit", "o"], c = 0; c < b.length && !window.requestAnimationFrame; ++c)
                             window.requestAnimationFrame = window[b[c] + "RequestAnimationFrame"], window.cancelAnimationFrame = window[b[c] + "CancelAnimationFrame"] || window[b[c] + "CancelRequestAnimationFrame"];
-                        window.requestAnimationFrame || (window.requestAnimationFrame = function(b) {
-                            var c = (new Date).getTime(), d = Math.max(0, 16 - (c - a)), e = window.setTimeout(function() {
+                        window.requestAnimationFrame || (window.requestAnimationFrame = function (b) {
+                            var c = (new Date).getTime(), d = Math.max(0, 16 - (c - a)), e = window.setTimeout(function () {
                                 b(c + d)
                             }, d);
                             return a = c + d, e
-                        }), window.cancelAnimationFrame || (window.cancelAnimationFrame = function(a) {
+                        }), window.cancelAnimationFrame || (window.cancelAnimationFrame = function (a) {
                             clearTimeout(a)
                         })
                     }();
 
-            $(function() {
+            $(function () {
 
                 $('#particles').particleground({
                     minSpeedX: 0.1,

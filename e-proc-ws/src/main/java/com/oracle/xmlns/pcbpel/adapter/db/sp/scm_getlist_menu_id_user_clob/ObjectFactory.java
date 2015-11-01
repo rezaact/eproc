@@ -24,8 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _OutputParametersGETLISTMENUBYIDUSER_QNAME = new QName("http://xmlns.oracle.com/pcbpel/adapter/db/sp/scm_getlist_menu_id_user_clob", "GET_LIST_MENU_BY_ID_USER");
     private final static QName _InputParametersINIDUSER_QNAME = new QName("http://xmlns.oracle.com/pcbpel/adapter/db/sp/scm_getlist_menu_id_user_clob", "IN_ID_USER");
+    private final static QName _OutputParametersGETLISTMENUBYIDUSER_QNAME = new QName("http://xmlns.oracle.com/pcbpel/adapter/db/sp/scm_getlist_menu_id_user_clob", "GET_LIST_MENU_BY_ID_USER");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.oracle.xmlns.pcbpel.adapter.db.sp.scm_getlist_menu_id_user_clob
@@ -54,18 +54,18 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/scm_getlist_menu_id_user_clob", name = "GET_LIST_MENU_BY_ID_USER", scope = OutputParameters.class)
-    public JAXBElement<String> createOutputParametersGETLISTMENUBYIDUSER(String value) {
-        return new JAXBElement<String>(_OutputParametersGETLISTMENUBYIDUSER_QNAME, String.class, OutputParameters.class, value);
+    @XmlElementDecl(namespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/scm_getlist_menu_id_user_clob", name = "IN_ID_USER", scope = InputParameters.class)
+    public JAXBElement<String> createInputParametersINIDUSER(String value) {
+        return new JAXBElement<String>(_InputParametersINIDUSER_QNAME, String.class, InputParameters.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/scm_getlist_menu_id_user_clob", name = "IN_ID_USER", scope = InputParameters.class)
-    public JAXBElement<String> createInputParametersINIDUSER(String value) {
-        return new JAXBElement<String>(_InputParametersINIDUSER_QNAME, String.class, InputParameters.class, value);
+    @XmlElementDecl(namespace = "http://xmlns.oracle.com/pcbpel/adapter/db/sp/scm_getlist_menu_id_user_clob", name = "GET_LIST_MENU_BY_ID_USER", scope = OutputParameters.class)
+    public JAXBElement<String> createOutputParametersGETLISTMENUBYIDUSER(String value) {
+        return new JAXBElement<String>(_OutputParametersGETLISTMENUBYIDUSER_QNAME, String.class, OutputParameters.class, value);
     }
 
 }
